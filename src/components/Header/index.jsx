@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
 import ContactBtn from '../ContactBtn';
 import './Header.scss';
+import '../ContactBtn/ContactBtn.scss';
 
 const Header = () => {
   return (
@@ -21,7 +22,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <ContactBtn textContent="Contact" />
+      <ContactBtn className="contact-link" textContent="Contact" />
     </div>
   );
 };

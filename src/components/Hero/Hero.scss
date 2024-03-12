@@ -2,6 +2,9 @@
 
 .hero {
   padding: 0 shared.$desktop-padding;
+  &__btn {
+    display: flex;
+  }
 }
 
 h1 {

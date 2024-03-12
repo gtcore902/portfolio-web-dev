@@ -1,8 +1,8 @@
 import './ContactBtn.scss';
 
-const ContactBtn = ({ textContent }) => {
+const ContactBtn = ({ textContent, className }) => {
   return (
-    <a href="#" className="contact-link">
+    <a href="#" className={className}>
       {textContent}
     </a>
   );
