@@ -1,0 +1,11 @@
+@use '../../_shared.scss';
+
+.contact-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 25px;
+  border: solid 1px;
+}

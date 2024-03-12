@@ -1,0 +1,10 @@
+@use '../../_shared.scss';
+
+.hero {
+  padding: 0 shared.$desktop-padding;
+}
+
+h1 {
+  font-size: 56px;
+  font-weight: 700;
+}
