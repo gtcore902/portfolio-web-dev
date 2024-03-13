@@ -3,7 +3,7 @@
 .stats-text {
   span {
     display: block;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 600;
     // margin-right: 75px;
     &:first-of-type {
@@ -14,7 +14,7 @@
   }
   span:last-of-type {
     color: shared.$base-color;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 700;
   }
 }
