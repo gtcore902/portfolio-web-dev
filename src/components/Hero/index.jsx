@@ -42,7 +42,7 @@ const Hero = () => {
       <div className="hero__image__container">
         <img
           className="hero__image__container__image__profil"
-          src="https://i.pravatar.cc/400?img=68"
+          src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           alt="Gaëtan TREMOIS Développeur web"
         />
       </div>
