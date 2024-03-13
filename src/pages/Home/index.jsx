@@ -10,15 +10,20 @@ const Home = () => {
 
   const fetchDatas = async () => {
     try {
-      const datas = await fetch('../../datas/certificates/certificates.json');
-      const response = await datas.json();
-      if (datas.status === 200) {
-        console.log(datas.status);
+      const response = await fetch(
+        '../../datas/certificates/certificates.json'
+      );
+      const datas = await response.json();
+      console.log(response.status);
+      if (response.status >= 400 && response.status < 500) {
+        console.log(response.status, 'Not found!');
       }
-      setCertificates(response);
-      // set errors here
+      if (response.status >= 500) {
+        console.log(response.status, 'Error server!');
+      }
+      setCertificates(datas);
     } catch (error) {
-      console.log(error);
+      console.log('Error :', error);
     }
   };
 
