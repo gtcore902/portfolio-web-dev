@@ -1,10 +1,29 @@
 @use '../../_shared.scss';
 
 .hero {
-  padding: 0 shared.$desktop-padding;
-  &__btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 100px shared.$desktop-margin;
+  &__informations {
+    max-width: 50%;
+    &__btn {
+      display: flex;
+      font-weight: 600;
+    }
+  }
+  &__image__container {
     display: flex;
-    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    &__image__profil {
+      object-fit: cover;
+      border-radius: 9999px;
+      width: 450px;
+      height: 450px;
+      max-width: 450px;
+      max-height: 450px;
+    }
   }
 }
 

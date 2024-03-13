@@ -8,32 +8,42 @@ import './Hero.scss';
 const Hero = () => {
   return (
     <div className="hero">
-      <h1>
-        HI, I'M GAETAN. <br />A WEB
-        <FontAwesomeIcon
-          icon={faCode}
-          size="2xs"
-          className="flash-color icon-margin"
-        />
-        DEVELOPER
-      </h1>
-      <h2>
-        React JS
-        <FontAwesomeIcon
-          icon={faGear}
-          size="2xs"
-          className="flash-color icon-margin"
-        />
-        Node JS
-      </h2>
-      <div className="hero__btn">
-        <ContactBtn
-          className="contact-link contact-link--background-dark"
-          textContent="Un projet ?"
-        />
-        <ContactBtn
-          className="contact-link contact-link--background-light"
-          textContent="Contact"
+      <div className="hero__informations">
+        <h1>
+          HI, I'M GAETAN. <br />
+          DEVELOPPEUR
+          <FontAwesomeIcon
+            icon={faCode}
+            size="2xs"
+            className="flash-color icon-margin"
+          />
+          WEB
+        </h1>
+        <h2>
+          React JS
+          <FontAwesomeIcon
+            icon={faGear}
+            size="2xs"
+            className="flash-color icon-margin"
+          />
+          Node JS
+        </h2>
+        <div className="hero__informations__btn">
+          <ContactBtn
+            className="contact-link contact-link--background-dark"
+            textContent="Un projet ?"
+          />
+          <ContactBtn
+            className="contact-link contact-link--background-light"
+            textContent="Contact"
+          />
+        </div>
+      </div>
+      <div className="hero__image__container">
+        <img
+          className="hero__image__container__image__profil"
+          src="https://images.pexels.com/photos/14661/pexels-photo-14661.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="Gaëtan TREMOIS Développeur web"
         />
       </div>
     </div>

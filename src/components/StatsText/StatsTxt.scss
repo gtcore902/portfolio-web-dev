@@ -1,0 +1,20 @@
+@use '../../_shared.scss';
+
+.stats-text {
+  span {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    // margin-right: 75px;
+    &:first-of-type {
+      color: shared.$flash-color;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+  }
+  span:last-of-type {
+    color: shared.$base-color;
+    font-size: 24px;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,27 @@
+@use '../../_shared.scss';
+
+.banner-container {
+  display: flex;
+  //   justify-content: center;
+  align-items: center;
+  min-height: 150px;
+  overflow-x: hidden;
+  //   overflow-y: visible;
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 8vh;
+    background-color: shared.$base-color;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    transform-origin: center;
+    transform: rotate(-3deg) scaleX(1.01);
+    &__techno {
+      margin: auto 35px;
+      text-transform: uppercase;
+    }
+  }
+}

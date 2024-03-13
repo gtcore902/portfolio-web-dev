@@ -1,0 +1,32 @@
+@use '../../_shared.scss';
+
+.about {
+  margin: 150px shared.$desktop-margin 100px shared.$desktop-margin;
+  &__text {
+    display: flex;
+    &__title {
+      font-size: 24px;
+      width: 40%;
+      font-weight: 700;
+    }
+    &__content {
+      width: 60%;
+      margin-left: 50px;
+      &__title {
+        font-size: 32px;
+        margin-top: 0;
+      }
+      &__tags {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 32px;
+      }
+    }
+  }
+  &__stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+  }
+}

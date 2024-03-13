@@ -1,0 +1,23 @@
+@use '../../_shared.scss';
+
+.flash-stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  border: solid 2px shared.$base-color;
+  width: 33%;
+  span {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    &:first-of-type {
+      font-size: 56px;
+    }
+  }
+  &:nth-child(even) {
+    background-color: shared.$base-color;
+    color: white;
+  }
+}
