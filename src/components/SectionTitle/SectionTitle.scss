@@ -1,0 +1,18 @@
+@use '../../_shared.scss';
+
+.title-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  margin-bottom: 50px;
+  &__title {
+    font-size: 3rem;
+    margin: 24px 0 8px 0;
+  }
+  &__subtitle {
+    font-size: 1.125rem;
+    margin: 0;
+  }
+}
