@@ -6,6 +6,8 @@ import About from '../../components/About';
 import SectionTitle from '../../components/SectionTitle';
 import Awards from '../../components/Awards';
 import AddButton from '../../components/AddButton';
+import codeIcon from '../../assets/code.svg';
+import '../../awardsContainer.scss';
 
 const Home = () => {
   const [awards, setAwards] = useState([]);
@@ -50,19 +52,22 @@ const Home = () => {
       <Banner />
       <About />
       <SectionTitle title="Certifications" subtitle="Certificats de réussite" />
-      {awardsSorted.map((award) => (
-        <Awards
-          key={award.id}
-          index={award.index}
-          title={award.title}
-          organization={award.organization}
-          date={award.date}
-        />
-      ))}
-      {awardsSortedLength < awards.length && (
-        // <button onClick={updateAwardsLength}>Ajouter</button>
-        <AddButton updateAwardsLength={updateAwardsLength} />
-      )}
+      <div className="awards-container">
+        {awardsSorted.map((award) => (
+          <Awards
+            key={award.id}
+            index={award.index}
+            title={award.title}
+            organization={award.organization}
+            date={award.date}
+          />
+        ))}
+        {awardsSortedLength < awards.length && (
+          // <button onClick={updateAwardsLength}>Ajouter</button>
+          <AddButton updateAwardsLength={updateAwardsLength} />
+        )}
+        <img className="awards-container__code-icon" src={codeIcon} alt="" />
+      </div>
 
       <SectionTitle title="Portfolio" subtitle="Projets réalisés" />
     </div>
