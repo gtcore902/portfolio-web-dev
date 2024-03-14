@@ -5,9 +5,13 @@ import Banner from '../../components/Banner';
 import About from '../../components/About';
 import SectionTitle from '../../components/SectionTitle';
 import Awards from '../../components/Awards';
+import AddButton from '../../components/AddButton';
 
 const Home = () => {
   const [awards, setAwards] = useState([]);
+  // const [awardsLength, setAwardsLength] = useState(4);
+  const [awardsSorted, setAwardsSortded] = useState([]);
+  const [awardsSortedLength, setAwardsSortedLength] = useState(4);
 
   const fetchDatas = async () => {
     try {
@@ -26,9 +30,18 @@ const Home = () => {
     }
   };
 
+  const updateAwardsLength = () => {
+    setAwardsSortedLength(awardsSortedLength + 4);
+    setAwardsSortded(awards.slice(0, awards.length + 4));
+  };
+
   useEffect(() => {
     fetchDatas();
   }, []);
+
+  useEffect(() => {
+    setAwardsSortded(awards.slice(0, 4));
+  }, [awards]);
 
   return (
     <div>
@@ -37,7 +50,7 @@ const Home = () => {
       <Banner />
       <About />
       <SectionTitle title="Certifications" subtitle="Certificats de réussite" />
-      {awards.map((award) => (
+      {awardsSorted.map((award) => (
         <Awards
           key={award.id}
           index={award.index}
@@ -46,6 +59,11 @@ const Home = () => {
           date={award.date}
         />
       ))}
+      {awardsSortedLength < awards.length && (
+        // <button onClick={updateAwardsLength}>Ajouter</button>
+        <AddButton updateAwardsLength={updateAwardsLength} />
+      )}
+
       <SectionTitle title="Portfolio" subtitle="Projets réalisés" />
     </div>
   );
