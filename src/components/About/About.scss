@@ -1,7 +1,7 @@
 @use '../../_shared.scss';
 
 .about {
-  margin: 150px shared.$desktop-margin 100px shared.$desktop-margin;
+  margin: 150px shared.$desktop-margin 0 shared.$desktop-margin;
   &__text {
     display: flex;
     &__title {
@@ -28,6 +28,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 100px auto;
+    margin: 100px auto 0 auto;
   }
 }

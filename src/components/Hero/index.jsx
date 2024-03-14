@@ -19,7 +19,7 @@ const Hero = () => {
           />
           WEB
         </h1>
-        <h2>
+        <h2 className="hero__informations__h2title">
           React JS
           <FontAwesomeIcon
             icon={faGear}
