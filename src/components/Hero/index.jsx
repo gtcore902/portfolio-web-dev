@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
+import profilImg from '../../assets/photo_test.jpg';
 import ContactBtn from '../ContactBtn';
 import './Hero.scss';
 // import '../ContactBtn/ContactBtn.scss';
@@ -43,6 +44,7 @@ const Hero = () => {
         <img
           className="hero__image__container__image__profil"
           src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          // src={profilImg}
           alt="Gaëtan TREMOIS Développeur web"
         />
       </div>
