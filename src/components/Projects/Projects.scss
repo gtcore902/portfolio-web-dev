@@ -1,0 +1,44 @@
+@use '../../_shared.scss';
+
+.project {
+  display: flex;
+  gap: 44px;
+  margin: 0 shared.$desktop-margin 95px shared.$desktop-margin;
+  &__image {
+    width: 40%;
+    overflow: hidden;
+    & img {
+      width: 100%;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+    &__tag {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: white;
+      background-color: shared.$flash-color;
+      width: max-content;
+      text-transform: uppercase;
+      letter-spacing: 0.08rem;
+      padding: 5px 10px;
+      margin-bottom: 32px;
+    }
+    h4 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    p:last-of-type {
+      font-size: 1.135rem;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
+  &--reversed {
+    flex-direction: row-reverse;
+  }
+}

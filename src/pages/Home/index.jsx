@@ -7,17 +7,19 @@ import SectionTitle from '../../components/SectionTitle';
 import Awards from '../../components/Awards';
 import AddButton from '../../components/AddButton';
 import codeIcon from '../../assets/code.svg';
+import Projects from '../../components/Projects';
+import ContactForm from '../../components/ContactForm';
 import '../../awardsContainer.scss';
 
 const Home = () => {
   const [awards, setAwards] = useState([]);
-  // const [awardsLength, setAwardsLength] = useState(4);
   const [awardsSorted, setAwardsSortded] = useState([]);
   const [awardsSortedLength, setAwardsSortedLength] = useState(4);
+  const [projects, setProjects] = useState([]);
 
-  const fetchDatas = async () => {
+  const fetchDatas = async (url, callback) => {
     try {
-      const response = await fetch('../../datas/awards/awards.json');
+      const response = await fetch(url);
       const datas = await response.json();
       console.log(response.status);
       if (response.status >= 400 && response.status < 500) {
@@ -26,7 +28,7 @@ const Home = () => {
       if (response.status >= 500) {
         console.log(response.status, 'Error server!');
       }
-      setAwards(datas);
+      callback(datas);
     } catch (error) {
       console.log('Error :', error);
     }
@@ -38,7 +40,8 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchDatas();
+    fetchDatas('../../datas/awards/awards.json', setAwards);
+    fetchDatas('../../datas/projects/projects.json', setProjects);
   }, []);
 
   useEffect(() => {
@@ -53,23 +56,33 @@ const Home = () => {
       <About />
       <SectionTitle title="Certifications" subtitle="Certificats de réussite" />
       <div className="awards-container">
-        {awardsSorted.map((award) => (
+        {awardsSorted.map((award, index) => (
           <Awards
             key={award.id}
-            index={award.index}
+            index={index + 1}
             title={award.title}
             organization={award.organization}
             date={award.date}
           />
         ))}
         {awardsSortedLength < awards.length && (
-          // <button onClick={updateAwardsLength}>Ajouter</button>
           <AddButton updateAwardsLength={updateAwardsLength} />
         )}
-        <img className="awards-container__code-icon" src={codeIcon} alt="" />
+        {/* <img className="awards-container__code-icon" src={codeIcon} alt="" /> */}
       </div>
-
       <SectionTitle title="Portfolio" subtitle="Projets réalisés" />
+      {projects.map((project, index) => (
+        <Projects
+          className={index % 2 === 0 ? 'project' : 'project project--reversed'}
+          key={project.id}
+          title={project.title}
+          projectUrl={project.projectUrl}
+          imageUrl={project.imageUrl}
+          tag={project.tag}
+        />
+      ))}
+      <SectionTitle title="Contact" />
+      <ContactForm />
     </div>
   );
 };
