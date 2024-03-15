@@ -16,7 +16,12 @@ const ContactForm = () => {
   };
   return (
     <div>
-      <form className="contactForm" method="post" onSubmit={handleSubmit}>
+      <form
+        id="contact"
+        className="contactForm"
+        method="post"
+        onSubmit={handleSubmit}
+      >
         <label htmlFor="name">
           Nom <span>*</span>
         </label>

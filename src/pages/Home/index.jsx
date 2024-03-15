@@ -9,6 +9,7 @@ import AddButton from '../../components/AddButton';
 import codeIcon from '../../assets/code.svg';
 import Projects from '../../components/Projects';
 import ContactForm from '../../components/ContactForm';
+import Footer from '../../components/Footer';
 import '../../awardsContainer.scss';
 
 const Home = () => {
@@ -83,6 +84,7 @@ const Home = () => {
       ))}
       <SectionTitle title="Contact" />
       <ContactForm />
+      <Footer />
     </div>
   );
 };

@@ -2,11 +2,12 @@
 
 .banner-container {
   display: flex;
-  //   justify-content: center;
   align-items: center;
   min-height: 175px;
   overflow-x: hidden;
-  //   overflow-y: visible;
+  @media all and (max-width: 768px) {
+    display: none;
+  }
   &__content {
     display: flex;
     justify-content: center;

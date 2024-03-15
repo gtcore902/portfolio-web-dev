@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
 import ContactBtn from '../ContactBtn';
@@ -15,10 +16,10 @@ const Header = () => {
       <nav>
         <ul className="header__nav">
           <li className="header__nav__link">
-            <a href="#">Home</a>
+            <Link to="#">Home</Link>
           </li>
           <li className="header__nav__link">
-            <a href="#">A propos</a>
+            <a href="#contact">A propos</a>
           </li>
         </ul>
       </nav>

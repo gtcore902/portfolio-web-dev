@@ -15,11 +15,15 @@
   &__informations {
     max-width: 50%;
     @media all and (max-width: 1000px) {
-      min-width: 100%;
+      max-width: 100%;
+      text-align: center;
     }
     &__btn {
       display: flex;
       font-weight: 600;
+      @media all and (max-width: 1000px) {
+        justify-content: center;
+      }
     }
     &__h2title {
       margin-bottom: 37px;
