@@ -6,6 +6,9 @@
   align-items: center;
   font-weight: 700;
   margin: 10px shared.$desktop-margin 0 shared.$desktop-margin;
+  @media all and (max-width: 600px) {
+    margin: 10px shared.$mobile-margin 0 shared.$mobile-margin;
+  }
   &__logo {
     display: flex;
     align-items: center;
@@ -17,6 +20,10 @@
   &__nav {
     display: flex;
     list-style-type: none;
+    padding-left: 0;
+    @media all and (max-width: 699px) {
+      display: none;
+    }
     &__link {
       padding: 8px 16px;
     }

@@ -4,8 +4,19 @@
   display: flex;
   justify-content: space-between;
   margin: 100px shared.$desktop-margin;
+  @media all and (max-width: 1000px) {
+    // margin: 30px shared.$mobile-margin;
+    flex-direction: column;
+    gap: 30px;
+  }
+  @media all and (max-width: 600px) {
+    margin: 30px shared.$mobile-margin;
+  }
   &__informations {
     max-width: 50%;
+    @media all and (max-width: 1000px) {
+      min-width: 100%;
+    }
     &__btn {
       display: flex;
       font-weight: 600;
@@ -19,6 +30,9 @@
     justify-content: center;
     align-items: center;
     max-width: 50%;
+    @media all and (max-width: 1000px) {
+      max-width: 100%;
+    }
     &__image__profil {
       object-fit: cover;
       border-radius: 9999px;
@@ -26,12 +40,25 @@
       height: 450px;
       max-width: 450px;
       max-height: 450px;
+      @media all and (max-width: 1275px) {
+        width: 350px;
+        height: 350px;
+        // width: 100%;
+      }
+      @media all and (max-width: 380px) {
+        width: 300px;
+        height: 300px;
+      }
     }
   }
 }
 
 h1 {
   font-size: 3.5rem;
+  // font-size: clamp(1rem, 3.5rem, 3.5rem);
   font-weight: 700;
   margin-bottom: 37px;
+  @media all and (max-width: 1275px) {
+    font-size: 2.5rem;
+  }
 }

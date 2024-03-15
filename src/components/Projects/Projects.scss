@@ -4,11 +4,30 @@
   display: flex;
   gap: 44px;
   margin: 0 shared.$desktop-margin 95px shared.$desktop-margin;
+  @media all and (max-width: 1200px) {
+    gap: 30px;
+  }
+  @media all and (max-width: 750px) {
+    flex-direction: column;
+  }
   &__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40%;
     overflow: hidden;
-    & img {
+    object-fit: cover;
+    @media all and (max-width: 750px) {
       width: 100%;
+    }
+
+    & img {
+      width: 400px;
+      height: auto;
+      object-fit: cover;
+      @media all and (max-width: 750px) {
+        width: 100%;
+      }
     }
   }
   &__content {
@@ -16,6 +35,9 @@
     flex-direction: column;
     justify-content: space-between;
     width: 60%;
+    @media all and (max-width: 750px) {
+      width: 100%;
+    }
     &__tag {
       font-size: 1.125rem;
       font-weight: 700;
@@ -31,6 +53,9 @@
       margin: 0;
       font-size: 3rem;
       font-weight: 700;
+      @media all and (max-width: 1200px) {
+        font-size: 2.5rem;
+      }
     }
     p:last-of-type {
       font-size: 1.135rem;
@@ -40,5 +65,8 @@
   }
   &--reversed {
     flex-direction: row-reverse;
+    @media all and (max-width: 750px) {
+      flex-direction: column;
+    }
   }
 }

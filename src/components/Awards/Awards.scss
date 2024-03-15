@@ -7,30 +7,59 @@
   border: solid 2px shared.$base-color;
   margin: 0 shared.$desktop-margin 24px shared.$desktop-margin;
   padding: 32px 36px;
+  @media all and (max-width: 750px) {
+    padding: 15px 18px;
+  }
+  @media all and (max-width: 630px) {
+    padding: 10px 12px;
+  }
+  @media all and (max-width: 600px) {
+    flex-direction: column;
+  }
+
   &__informations {
     display: flex;
     align-items: center;
+    @media all and (max-width: 600px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     &__index {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 48px;
-      height: 48px;
+      min-width: 48px;
+      min-height: 48px;
       margin-right: 24px;
       font-size: 1.125rem;
       background-color: shared.$flash-color;
       color: white;
+      @media all and (max-width: 600px) {
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
     }
     &__content {
       h4 {
         font-size: 1.5rem;
         font-weight: 700;
         margin: 0;
+        padding-right: 24px;
+        @media all and (max-width: 900px) {
+          font-size: 1.125rem;
+        }
+        @media all and (max-width: 600px) {
+          margin-right: 0;
+        }
       }
       p {
         font-size: 1.125rem;
         font-weight: 500;
         margin: 0;
+        @media all and (max-width: 600px) {
+          margin-bottom: 10px;
+        }
       }
     }
   }

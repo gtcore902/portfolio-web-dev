@@ -4,15 +4,25 @@
   margin: 150px shared.$desktop-margin 0 shared.$desktop-margin;
   &__text {
     display: flex;
+    @media all and (max-width: 1000px) {
+      flex-direction: column;
+    }
     &__title {
       font-size: 1.5rem;
       width: 40%;
       font-weight: 700;
+      @media all and (max-width: 1000px) {
+        width: 100%;
+      }
     }
     &__content {
       width: 60%;
       margin-left: 50px;
-      font-style: 1.125rem;
+      font-size: 1.125rem;
+      @media all and (max-width: 1000px) {
+        width: 100%;
+        margin-left: 0;
+      }
       &__title {
         font-size: 2rem;
         margin-top: 0;
@@ -21,6 +31,12 @@
         display: flex;
         justify-content: space-between;
         margin-top: 32px;
+        @media all and (max-width: 600px) {
+          flex-direction: column;
+          gap: 30px;
+          // align-items: center;
+          // text-align: center;
+        }
       }
     }
   }
@@ -29,5 +45,8 @@
     justify-content: center;
     align-items: center;
     margin: 100px auto 0 auto;
+    @media all and (max-width: 1220px) {
+      flex-direction: column;
+    }
   }
 }
