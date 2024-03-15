@@ -3,6 +3,9 @@ import './ContactForm.scss';
 
 const ContactForm = () => {
   const [inputs, setInputs] = useState({});
+  const [messageSendingStatus, setMessageSendingStatus] = useState('');
+
+  //   const reset = setSendingStatusMessage('');
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -13,7 +16,38 @@ const ContactForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(inputs);
+    // send form
+    fetch('http://localhost:4000/sendmail', {
+      method: 'POST',
+      //   mode: 'no-cors',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        // 'Access-Control-Allow-Origin': '*',
+        // 'Access-Control-Allow-Credentials': 'true',
+      },
+      body: JSON.stringify(inputs),
+    })
+      .then((response) => {
+        console.log(response);
+        if (response.status !== 200) {
+          throw new Error(response.statusText);
+        }
+      })
+      .then(() => {
+        setMessageSendingStatus('Merci pour votre message!');
+      })
+      .then(() => {
+        setInputs('');
+      })
+      .catch((error) => {
+        setMessageSendingStatus("Erreur dans l'envoi de votre message");
+      });
   };
+
+  //   const resetForm = () => {
+
+  //   }
   return (
     <div>
       <form
@@ -51,6 +85,9 @@ const ContactForm = () => {
           value={inputs.message || ''}
           onChange={handleChange}
         ></textarea>
+        {messageSendingStatus !== '' && (
+          <p className="message-sending-status">{messageSendingStatus}</p>
+        )}
         <input
           type="submit"
           className="contactForm__submitBtn"
