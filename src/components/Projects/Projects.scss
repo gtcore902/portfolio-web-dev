@@ -2,6 +2,7 @@
 
 .project {
   display: flex;
+  justify-content: space-between;
   gap: 44px;
   margin: 0 shared.$desktop-margin 95px shared.$desktop-margin;
   @media all and (max-width: 1200px) {
@@ -14,7 +15,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    // width: 40%;
+    width: auto;
     overflow: hidden;
     object-fit: cover;
     @media all and (max-width: 750px) {
@@ -25,6 +27,7 @@
       width: 400px;
       height: auto;
       object-fit: cover;
+      @include shared.main-animation;
       @media all and (max-width: 750px) {
         width: 100%;
       }
@@ -69,4 +72,9 @@
       flex-direction: column;
     }
   }
+}
+
+.project:hover .project__image img {
+  @include shared.main-animation;
+  transform: scale(1.1);
 }

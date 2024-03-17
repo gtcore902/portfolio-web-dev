@@ -35,3 +35,7 @@ a {
 .icon-margin {
   margin: auto 15px;
 }
+
+@mixin main-animation {
+  transition: all 0.15s ease-in;
+}

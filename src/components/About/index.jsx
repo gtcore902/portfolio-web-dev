@@ -6,7 +6,7 @@ import './About.scss';
 
 const About = () => {
   return (
-    <div className="about">
+    <div id="a-propos" className="about">
       <div className="about__text">
         <div className="about__text__title">
           GAETAN
@@ -19,9 +19,22 @@ const About = () => {
             Je suis développeur web passionné, cherchant une équipe passionnée!
           </h3>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            omnis, numquam nulla voluptates ipsam natus culpa sint. Aliquam,
-            delectus laborum?
+            Avec une expérience enrichissante en{' '}
+            <strong>développement web</strong> et une expertise solide en{' '}
+            <strong>gestion de la clientèle</strong>, j'ai occupé des postes de
+            chargé d'affaires dans les secteurs des télécommunications et de
+            l'industrie.
+            <br />
+            <br />
+            Mon parcours a renforcé mes compétences en formation et gestion B2B.
+            <br />
+            Après quelques années en tant que{' '}
+            <strong>développeur web freelance</strong>, je souhaite mettre ma{' '}
+            <strong>polyvalence</strong>, mon engagement, et ma capacité à
+            combiner des compétences, à contribution au sein d'une équipe, dans
+            un environnement axé sur le <strong>développement web</strong> et la{' '}
+            <strong>relation client</strong>, que ce soit en présentiel ou à
+            distance.
           </p>
           <div className="about__text__content__tags">
             <StatsTxt address="Résidence" city="Rouen" />

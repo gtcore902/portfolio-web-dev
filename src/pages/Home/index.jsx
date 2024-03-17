@@ -72,16 +72,20 @@ const Home = () => {
         {/* <img className="awards-container__code-icon" src={codeIcon} alt="" /> */}
       </div>
       <SectionTitle title="Portfolio" subtitle="Projets réalisés" />
-      {projects.map((project, index) => (
-        <Projects
-          className={index % 2 === 0 ? 'project' : 'project project--reversed'}
-          key={project.id}
-          title={project.title}
-          projectUrl={project.projectUrl}
-          imageUrl={project.imageUrl}
-          tag={project.tag}
-        />
-      ))}
+      <div id="projects">
+        {projects.map((project, index) => (
+          <Projects
+            className={
+              index % 2 === 0 ? 'project' : 'project project--reversed'
+            }
+            key={project.id}
+            title={project.title}
+            projectUrl={project.projectUrl}
+            imageUrl={project.imageUrl}
+            tag={project.tag}
+          />
+        ))}
+      </div>
       <SectionTitle title="Contact" />
       <ContactForm />
       <Footer />
