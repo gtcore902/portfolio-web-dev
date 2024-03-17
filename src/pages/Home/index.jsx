@@ -86,7 +86,7 @@ const Home = () => {
           />
         ))}
       </div>
-      <SectionTitle title="Contact" />
+      <SectionTitle title="Contact" subtitle={'Un besoin, un projet ?'} />
       <ContactForm />
       <Footer />
     </div>

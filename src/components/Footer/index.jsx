@@ -15,13 +15,22 @@ const Footer = () => {
         <p>Made by Gaëtan TREMOIS with MERN stack</p>
       </div>
       <div className="footer__links">
-        <Link to="https://github.com/gtcore902">
+        <Link
+          aria-label="Vers le page GitHub de Gaëtan TREMOIS"
+          to="https://github.com/gtcore902"
+        >
           <FontAwesomeIcon icon={faGithub} size="xl" />
         </Link>
-        <Link to="https://www.linkedin.com/in/ga%C3%ABtan-tremois-a956a91a3/">
+        <Link
+          aria-label="Vers la page Linkedin de Gaëtan TREMOIS"
+          to="https://www.linkedin.com/in/ga%C3%ABtan-tremois-a956a91a3/"
+        >
           <FontAwesomeIcon icon={faLinkedin} size="xl" />
         </Link>
-        <Link to="https://www.flickr.com/photos/186142483@N06/">
+        <Link
+          aria-label="Vers la page Flickr de Gaëtan TREMOIS"
+          to="https://www.flickr.com/photos/186142483@N06/"
+        >
           <FontAwesomeIcon icon={faFlickr} size="xl" />
         </Link>
       </div>
