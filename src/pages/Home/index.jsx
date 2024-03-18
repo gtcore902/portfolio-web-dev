@@ -43,13 +43,21 @@ const Home = () => {
         },
         body: JSON.stringify({
           query: ` {
-            posts {
+            posts(first: 100) {
               edges {
                 node {
                   id
                   title
                   date
                   content
+                  categories {
+                    edges {
+                      node {
+                        id
+                        name
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -61,8 +69,17 @@ const Home = () => {
       // console.log(typeof datas.data.posts.edges);
       // console.log(Array.from(datas.data.posts.edges));
       datas = Array.from(datas.data.posts.edges); // check for second call for projects
+      // datas = datas.filter(
+      //   (element) =>
+      //     element.node.categories.edges[0].node.name === 'certificate'
+      // );
       console.log(datas);
-      callback(datas);
+      callback(
+        datas.filter(
+          (element) =>
+            element.node.categories.edges[0].node.name === 'certificate'
+        )
+      );
     } catch (error) {
       console.log(error);
     }
@@ -104,7 +121,7 @@ const Home = () => {
             }`}
           />
         ))}
-        {awardsSortedLength < awards.length - 1 && (
+        {awardsSortedLength < awards.length && (
           <AddButton updateAwardsLength={updateAwardsLength} />
         )}
         {/* <img className="awards-container__code-icon" src={codeIcon} alt="" /> */}
