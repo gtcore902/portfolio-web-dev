@@ -17,24 +17,44 @@ const Home = () => {
   const [awardsSorted, setAwardsSortded] = useState([]);
   const [awardsSortedLength, setAwardsSortedLength] = useState(4);
   const [projects, setProjects] = useState([]);
-
-  const fetchDatas = async (url, callback) => {
-    try {
-      const response = await fetch(url);
-      const datas = await response.json();
-      console.log(response.status);
-      if (response.status >= 400 && response.status < 500) {
-        console.log(response.status, 'Not found!');
+  const query = ` {
+    posts(first: 100) {
+      edges {
+        node {
+          id
+          title
+          date
+          content
+          categories {
+            edges {
+              node {
+                id
+                name
+              }
+            }
+          }
+        }
       }
-      if (response.status >= 500) {
-        console.log(response.status, 'Error server!');
-      }
-      callback(datas);
-    } catch (error) {
-      console.log('Error :', error);
     }
-  };
-  const fetchDatas2 = async (url, callback) => {
+  }`;
+
+  // const fetchDatas = async (url, callback) => {
+  //   try {
+  //     const response = await fetch(url);
+  //     const datas = await response.json();
+  //     console.log(response.status);
+  //     if (response.status >= 400 && response.status < 500) {
+  //       console.log(response.status, 'Not found!');
+  //     }
+  //     if (response.status >= 500) {
+  //       console.log(response.status, 'Error server!');
+  //     }
+  //     callback(datas);
+  //   } catch (error) {
+  //     console.log('Error :', error);
+  //   }
+  // };
+  const fetchDatas = async (url, callback, filter) => {
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -42,26 +62,7 @@ const Home = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          query: ` {
-            posts(first: 100) {
-              edges {
-                node {
-                  id
-                  title
-                  date
-                  content
-                  categories {
-                    edges {
-                      node {
-                        id
-                        name
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }`,
+          query: query,
         }),
       });
       let datas = await response.json();
@@ -69,15 +70,10 @@ const Home = () => {
       // console.log(typeof datas.data.posts.edges);
       // console.log(Array.from(datas.data.posts.edges));
       datas = Array.from(datas.data.posts.edges); // check for second call for projects
-      // datas = datas.filter(
-      //   (element) =>
-      //     element.node.categories.edges[0].node.name === 'certificate'
-      // );
       console.log(datas);
       callback(
         datas.filter(
-          (element) =>
-            element.node.categories.edges[0].node.name === 'certificate'
+          (element) => element.node.categories.edges[0].node.name === filter
         )
       );
     } catch (error) {
@@ -90,8 +86,12 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchDatas2('https://api.gaetantremois.fr/graphql', setAwards);
-    fetchDatas('../../datas/projects/projects.json', setProjects);
+    fetchDatas(
+      'https://api.gaetantremois.fr/graphql',
+      setAwards,
+      'certificate'
+    );
+    fetchDatas('https://api.gaetantremois.fr/graphql', setProjects, 'project');
   }, []);
 
   useEffect(() => {
@@ -133,11 +133,19 @@ const Home = () => {
             className={
               index % 2 === 0 ? 'project' : 'project project--reversed'
             }
-            key={project.id}
-            title={project.title.rendered}
+            key={project.node.id}
+            title={
+              project.node.title
+              // .split('<h1 class="wp-block-heading">')[1]
+              // .split('</h1>')[0]
+            }
             projectUrl={project.projectUrl}
-            imageUrl={project.imageUrl}
-            tag={project.tag}
+            imageUrl={project.node.content.split('src="')[1].split('" alt')[0]}
+            tag={
+              project.node.content
+                .split('<h2 class="wp-block-heading">')[1]
+                .split('</h2>')[0]
+            }
           />
         ))}
       </div>
