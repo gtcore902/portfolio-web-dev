@@ -34,14 +34,46 @@ const Home = () => {
       console.log('Error :', error);
     }
   };
-
+  const fetchDatas2 = async (url, callback) => {
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: ` {
+            posts {
+              edges {
+                node {
+                  id
+                  title
+                  date
+                  content
+                }
+              }
+            }
+          }`,
+        }),
+      });
+      let datas = await response.json();
+      // console.log(datas.data.posts.edges);
+      // console.log(typeof datas.data.posts.edges);
+      // console.log(Array.from(datas.data.posts.edges));
+      datas = Array.from(datas.data.posts.edges); // check for second call for projects
+      console.log(datas);
+      callback(datas);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const updateAwardsLength = () => {
     setAwardsSortedLength(awardsSortedLength + 4);
-    setAwardsSortded(awards.slice(0, awards.length + 4));
+    setAwardsSortded(awards.slice(0, awardsSorted.length + 4));
   };
 
   useEffect(() => {
-    fetchDatas('../../datas/awards/awards.json', setAwards);
+    fetchDatas2('https://api.gaetantremois.fr/graphql', setAwards);
     fetchDatas('../../datas/projects/projects.json', setProjects);
   }, []);
 
@@ -59,14 +91,20 @@ const Home = () => {
       <div className="awards-container">
         {awardsSorted.map((award, index) => (
           <Awards
-            key={award.id}
+            key={award.node.id}
             index={index + 1}
-            title={award.title}
-            organization={award.organization}
-            date={award.date}
+            title={award.node.title}
+            organization={
+              award.node.content
+                .split('<h2 class="wp-block-heading">')[1]
+                .split('</h2>')[0]
+            }
+            date={`${award.node.date.split('-')[1]}/${
+              award.node.date.split('-')[0]
+            }`}
           />
         ))}
-        {awardsSortedLength < awards.length && (
+        {awardsSortedLength < awards.length - 1 && (
           <AddButton updateAwardsLength={updateAwardsLength} />
         )}
         {/* <img className="awards-container__code-icon" src={codeIcon} alt="" /> */}
@@ -79,7 +117,7 @@ const Home = () => {
               index % 2 === 0 ? 'project' : 'project project--reversed'
             }
             key={project.id}
-            title={project.title}
+            title={project.title.rendered}
             projectUrl={project.projectUrl}
             imageUrl={project.imageUrl}
             tag={project.tag}

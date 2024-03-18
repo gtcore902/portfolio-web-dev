@@ -46,7 +46,7 @@ const About = () => {
       <div className="about__stats">
         <StatsFlash stat="17+" title="années d'éxpérience prof." />
         <StatsFlash stat="4+" title="années d'éxpérience web" />
-        <StatsFlash stat="10+" title="clients satisfaits" />
+        <StatsFlash stat="10+" title="projets réalisés" />
       </div>
     </div>
   );
