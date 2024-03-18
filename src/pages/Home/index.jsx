@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Header from '../../components/Header';
 import Hero from '../../components/Hero';
 import Banner from '../../components/Banner';
@@ -15,6 +15,8 @@ import '../../awardsContainer.scss';
 const Home = () => {
   const [awards, setAwards] = useState([]);
   const [awardsSorted, setAwardsSortded] = useState([]);
+  const [isCertificatesLoaded, setIsCertificatesLoaded] = useState(false);
+  const [isProjectsLoaded, setIsProjectsLoaded] = useState(false);
   const [awardsSortedLength, setAwardsSortedLength] = useState(4);
   const [projects, setProjects] = useState([]);
   const query = ` {
@@ -54,7 +56,7 @@ const Home = () => {
   //     console.log('Error :', error);
   //   }
   // };
-  const fetchDatas = async (url, callback, filter) => {
+  const fetchDatas = async (url, callback, filter, updateState) => {
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -76,6 +78,7 @@ const Home = () => {
           (element) => element.node.categories.edges[0].node.name === filter
         )
       );
+      updateState(true);
     } catch (error) {
       console.log(error);
     }
@@ -89,9 +92,15 @@ const Home = () => {
     fetchDatas(
       'https://api.gaetantremois.fr/graphql',
       setAwards,
-      'certificate'
+      'certificate',
+      setIsCertificatesLoaded
     );
-    fetchDatas('https://api.gaetantremois.fr/graphql', setProjects, 'project');
+    fetchDatas(
+      'https://api.gaetantremois.fr/graphql',
+      setProjects,
+      'project',
+      setIsProjectsLoaded
+    );
   }, []);
 
   useEffect(() => {
@@ -100,58 +109,70 @@ const Home = () => {
 
   return (
     <div>
+      {/* <Suspense fallback={<div>Loading ...</div>}> */}
       <Header />
       <Hero />
       <Banner />
       <About />
       <SectionTitle title="Certifications" subtitle="Certificats de réussite" />
-      <div className="awards-container">
-        {awardsSorted.map((award, index) => (
-          <Awards
-            key={award.node.id}
-            index={index + 1}
-            title={award.node.title}
-            organization={
-              award.node.content
-                .split('<h2 class="wp-block-heading">')[1]
-                .split('</h2>')[0]
-            }
-            date={`${award.node.date.split('-')[1]}/${
-              award.node.date.split('-')[0]
-            }`}
-          />
-        ))}
-        {awardsSortedLength < awards.length && (
-          <AddButton updateAwardsLength={updateAwardsLength} />
-        )}
-        {/* <img className="awards-container__code-icon" src={codeIcon} alt="" /> */}
-      </div>
+      {isCertificatesLoaded ? (
+        <div className="awards-container">
+          {awardsSorted.map((award, index) => (
+            <Awards
+              key={award.node.id}
+              index={index + 1}
+              title={award.node.title}
+              organization={
+                award.node.content
+                  .split('<h2 class="wp-block-heading">')[1]
+                  .split('</h2>')[0]
+              }
+              date={`${award.node.date.split('-')[1]}/${
+                award.node.date.split('-')[0]
+              }`}
+            />
+          ))}
+          {awardsSortedLength < awards.length && (
+            <AddButton updateAwardsLength={updateAwardsLength} />
+          )}
+          {/* <img className="awards-container__code-icon" src={codeIcon} alt="" /> */}
+        </div>
+      ) : (
+        <div className="loader">Loading ...</div>
+      )}
       <SectionTitle title="Portfolio" subtitle="Projets réalisés" />
-      <div id="projects">
-        {projects.map((project, index) => (
-          <Projects
-            className={
-              index % 2 === 0 ? 'project' : 'project project--reversed'
-            }
-            key={project.node.id}
-            title={
-              project.node.title
-              // .split('<h1 class="wp-block-heading">')[1]
-              // .split('</h1>')[0]
-            }
-            projectUrl={project.projectUrl}
-            imageUrl={project.node.content.split('src="')[1].split('" alt')[0]}
-            tag={
-              project.node.content
-                .split('<h2 class="wp-block-heading">')[1]
-                .split('</h2>')[0]
-            }
-          />
-        ))}
-      </div>
+      {isProjectsLoaded ? (
+        <div id="projects">
+          {projects.map((project, index) => (
+            <Projects
+              className={
+                index % 2 === 0 ? 'project' : 'project project--reversed'
+              }
+              key={project.node.id}
+              title={
+                project.node.title
+                // .split('<h1 class="wp-block-heading">')[1]
+                // .split('</h1>')[0]
+              }
+              projectUrl={project.projectUrl}
+              imageUrl={
+                project.node.content.split('src="')[1].split('" alt')[0]
+              }
+              tag={
+                project.node.content
+                  .split('<h2 class="wp-block-heading">')[1]
+                  .split('</h2>')[0]
+              }
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="loader">Loading ...</div>
+      )}
       <SectionTitle title="Contact" subtitle={'Un besoin, un projet ?'} />
       <ContactForm />
       <Footer />
+      {/* </Suspense> */}
     </div>
   );
 };
