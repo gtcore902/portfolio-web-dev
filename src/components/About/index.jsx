@@ -5,6 +5,10 @@ import StatsFlash from '../StatsFlash';
 import './About.scss';
 
 const About = () => {
+  let initialProfDate = new Date('01 Jan 2007 00:00:00 GMT');
+  let initialWebDate = new Date('01 Jan 2020 00:00:00 GMT');
+  let now = Date.now();
+  let nowDate = new Date(now);
   return (
     <div id="a-propos" className="about">
       <div className="about__text">
@@ -44,8 +48,14 @@ const About = () => {
         </div>
       </div>
       <div className="about__stats">
-        <StatsFlash stat="17+" title="années d'éxpérience prof." />
-        <StatsFlash stat="4+" title="années d'éxpérience web" />
+        <StatsFlash
+          stat={`${nowDate.getFullYear() - initialProfDate.getFullYear()}+`}
+          title="années d'éxpérience prof."
+        />
+        <StatsFlash
+          stat={`${nowDate.getFullYear() - initialWebDate.getFullYear()}+`}
+          title="années d'éxpérience web"
+        />
         <StatsFlash stat="10+" title="projets réalisés" />
       </div>
     </div>
