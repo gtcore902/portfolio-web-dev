@@ -22,6 +22,7 @@
     margin-bottom: 16px;
     padding: 12px 16px;
     min-height: 48px;
+    @include shared.main-font;
     @media all and (max-width: 750px) {
       min-height: 30px;
     }
