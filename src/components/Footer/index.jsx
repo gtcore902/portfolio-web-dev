@@ -12,7 +12,7 @@ const Footer = () => {
     <div className="footer">
       <div className="footer__information">
         <FontAwesomeIcon icon={faCode} size="2xl" />
-        <p>Made by Gaëtan TREMOIS with MERN stack</p>
+        <p>Gaëtan TREMOIS 2024</p>
       </div>
       <div className="footer__links">
         <Link

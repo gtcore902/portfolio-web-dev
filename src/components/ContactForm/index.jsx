@@ -56,9 +56,7 @@ const ContactForm = () => {
         method="post"
         onSubmit={handleSubmit}
       >
-        <label htmlFor="name">
-          Nom <span>*</span>
-        </label>
+        <label htmlFor="name">Nom</label>
         <input
           type="text"
           name="name"
@@ -66,9 +64,7 @@ const ContactForm = () => {
           value={inputs.name || ''}
           onChange={handleChange}
         />
-        <label htmlFor="email">
-          Email <span>*</span>
-        </label>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
           name="email"
@@ -76,9 +72,7 @@ const ContactForm = () => {
           value={inputs.email || ''}
           onChange={handleChange}
         />
-        <label htmlFor="message">
-          Message <span>*</span>
-        </label>
+        <label htmlFor="message">Message</label>
         <textarea
           name="message"
           id="message"
