@@ -10,7 +10,9 @@
   }
   @media all and (max-width: 750px) {
     flex-direction: column;
+    margin: 30px shared.$mobile-margin;
   }
+
   &__image {
     display: flex;
     justify-content: center;

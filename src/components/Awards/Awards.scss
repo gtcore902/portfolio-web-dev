@@ -15,6 +15,7 @@
   }
   @media all and (max-width: 600px) {
     flex-direction: column;
+    margin: 30px shared.$mobile-margin;
   }
 
   &__informations {

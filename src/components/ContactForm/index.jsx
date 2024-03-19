@@ -5,8 +5,6 @@ const ContactForm = () => {
   const [inputs, setInputs] = useState({});
   const [messageSendingStatus, setMessageSendingStatus] = useState('');
 
-  //   const reset = setSendingStatusMessage('');
-
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -16,15 +14,15 @@ const ContactForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(inputs);
+    // const url = 'http://localhost:4000/';
+    const url = 'https://sendmail.gaetantremois.fr/sendmail';
     // send form
-    fetch('http://localhost:4000/sendmail', {
+    fetch(url, {
       method: 'POST',
-      //   mode: 'no-cors',
+      // mode: 'no-cors',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        // 'Access-Control-Allow-Origin': '*',
-        // 'Access-Control-Allow-Credentials': 'true',
       },
       body: JSON.stringify(inputs),
     })
@@ -45,9 +43,6 @@ const ContactForm = () => {
       });
   };
 
-  //   const resetForm = () => {
-
-  //   }
   return (
     <div>
       <form
