@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
-import profilImg from '../../assets/profil_gaetan_tremois.jpg';
+import profilImg from '../../assets/profil_gaetan_tremois.webp';
 import ContactBtn from '../ContactBtn';
 import './Hero.scss';
 // import '../ContactBtn/ContactBtn.scss';
