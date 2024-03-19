@@ -15,6 +15,7 @@
   }
   @media all and (max-width: 600px) {
     flex-direction: column;
+    align-items: flex-start;
     margin: 30px shared.$mobile-margin;
   }
 
@@ -25,7 +26,6 @@
       flex-direction: column;
       align-items: flex-start;
     }
-
     &__index {
       display: flex;
       justify-content: center;
@@ -62,6 +62,11 @@
           margin-bottom: 10px;
         }
       }
+    }
+  }
+  &__date {
+    @media all and (max-width: 600px) {
+      align-self: flex-end;
     }
   }
 }
