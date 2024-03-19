@@ -4,6 +4,7 @@ import { faCode } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFlickr } from '@fortawesome/free-brands-svg-icons';
+import { faCopyright } from '@fortawesome/free-regular-svg-icons';
 
 import './Footer.scss';
 
@@ -12,7 +13,10 @@ const Footer = () => {
     <div className="footer">
       <div className="footer__information">
         <FontAwesomeIcon icon={faCode} size="2xl" />
-        <p>Gaëtan TREMOIS 2024</p>
+        <p>
+          <FontAwesomeIcon icon={faCopyright} size="" />
+          <span>Gaëtan TREMOIS | 2024</span>
+        </p>
       </div>
       <div className="footer__links">
         <Link
