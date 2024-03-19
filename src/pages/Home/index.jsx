@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../../components/Header';
 import Hero from '../../components/Hero';
 import Banner from '../../components/Banner';
@@ -6,7 +6,6 @@ import About from '../../components/About';
 import SectionTitle from '../../components/SectionTitle';
 import Awards from '../../components/Awards';
 import AddButton from '../../components/AddButton';
-import codeIcon from '../../assets/code.svg';
 import Projects from '../../components/Projects';
 import ContactForm from '../../components/ContactForm';
 import Footer from '../../components/Footer';
@@ -140,9 +139,13 @@ const Home = () => {
       ) : (
         <div className="loader">Loading ...</div>
       )}
-      <SectionTitle title="Portfolio" subtitle="Projets réalisés" />
+      <SectionTitle
+        id="projects"
+        title="Portfolio"
+        subtitle="Projets réalisés"
+      />
       {isProjectsLoaded ? (
-        <div id="projects">
+        <div>
           {projects.map((project, index) => (
             <Projects
               className={
@@ -169,7 +172,11 @@ const Home = () => {
       ) : (
         <div className="loader">Loading ...</div>
       )}
-      <SectionTitle title="Contact" subtitle={'Un besoin, un projet ?'} />
+      <SectionTitle
+        id="contact"
+        title="Contact"
+        subtitle={'Un besoin, un projet ?'}
+      />
       <ContactForm />
       <Footer />
       {/* </Suspense> */}

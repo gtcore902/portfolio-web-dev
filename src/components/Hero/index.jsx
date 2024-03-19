@@ -31,10 +31,12 @@ const Hero = () => {
         </h2>
         <div className="hero__informations__btn">
           <ContactBtn
+            href="#contact"
             className="contact-link contact-link--background-dark"
             textContent="Un projet ?"
           />
           <ContactBtn
+            href="#contact"
             className="contact-link contact-link--background-light"
             textContent="Contact"
           />

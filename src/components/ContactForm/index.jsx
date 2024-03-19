@@ -45,12 +45,7 @@ const ContactForm = () => {
 
   return (
     <div>
-      <form
-        id="contact"
-        className="contactForm"
-        method="post"
-        onSubmit={handleSubmit}
-      >
+      <form className="contactForm" method="post" onSubmit={handleSubmit}>
         <label htmlFor="name">Nom</label>
         <input
           type="text"

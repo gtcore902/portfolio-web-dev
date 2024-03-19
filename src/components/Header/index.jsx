@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
 import ContactBtn from '../ContactBtn';
@@ -23,7 +22,11 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <ContactBtn className="contact-link" textContent="Contact" />
+      <ContactBtn
+        href="#contact"
+        className="contact-link"
+        textContent="Contact"
+      />
     </div>
   );
 };
