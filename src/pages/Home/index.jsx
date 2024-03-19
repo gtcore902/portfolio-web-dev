@@ -39,23 +39,7 @@ const Home = () => {
     }
   }`;
 
-  // const fetchDatas = async (url, callback) => {
-  //   try {
-  //     const response = await fetch(url);
-  //     const datas = await response.json();
-  //     console.log(response.status);
-  //     if (response.status >= 400 && response.status < 500) {
-  //       console.log(response.status, 'Not found!');
-  //     }
-  //     if (response.status >= 500) {
-  //       console.log(response.status, 'Error server!');
-  //     }
-  //     callback(datas);
-  //   } catch (error) {
-  //     console.log('Error :', error);
-  //   }
-  // };
-  const fetchDatas = async (url, callback, filter, updateState) => {
+  const fetchDatas = async (url) => {
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -71,13 +55,20 @@ const Home = () => {
       // console.log(typeof datas.data.posts.edges);
       // console.log(Array.from(datas.data.posts.edges));
       datas = Array.from(datas.data.posts.edges); // check for second call for projects
-      console.log(datas);
-      callback(
+      // console.log(datas);
+      setAwards(
         datas.filter(
-          (element) => element.node.categories.edges[0].node.name === filter
+          (element) =>
+            element.node.categories.edges[0].node.name === 'certificate'
         )
       );
-      updateState(true);
+      setProjects(
+        datas.filter(
+          (element) => element.node.categories.edges[0].node.name === 'project'
+        )
+      );
+      setIsCertificatesLoaded(true);
+      setIsProjectsLoaded(true);
     } catch (error) {
       console.log(error);
     }
@@ -88,18 +79,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchDatas(
-      'https://api.gaetantremois.fr/graphql',
-      setAwards,
-      'certificate',
-      setIsCertificatesLoaded
-    );
-    fetchDatas(
-      'https://api.gaetantremois.fr/graphql',
-      setProjects,
-      'project',
-      setIsProjectsLoaded
-    );
+    fetchDatas('https://api.gaetantremois.fr/graphql');
   }, []);
 
   useEffect(() => {
@@ -108,7 +88,6 @@ const Home = () => {
 
   return (
     <div>
-      {/* <Suspense fallback={<div>Loading ...</div>}> */}
       <Header />
       <Hero />
       <Banner />
