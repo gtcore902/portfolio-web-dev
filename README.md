@@ -10,9 +10,9 @@ The site is a personal portfolio designed to showcase the skills, projects, and 
 
 - **Frontend:** The site is built using the [React JS](https://fr.react.dev/) JavaScript framework. It utilizes reusable components for an optimal user experience.
 
-- **Backend:** The backend was developed with [WPGraphQL](https://www.wpgraphql.com/), a WordPress extension that exposes your [WordPress site as a GraphQL API](https://developer.wordpress.org/rest-api/). It enables flexible and efficient communication between the frontend and backend. The API endpoint is `https://api.gaetantremois.fr/graphql`.
+- **Backend:** The backend was developed with [WPGraphQL](https://www.wpgraphql.com/), a WordPress extension that exposes your [WordPress site as a GraphQL API](https://developer.wordpress.org/rest-api/). It enables flexible and efficient communication between the frontend and backend. This technology is interesting in a **green IT** approach by formulating **only one fetch** API to retrieve all the application data. The API endpoint is `https://api.gaetantremois.fr/graphql`.
 
-- **Email Sending System:** Email sending is managed with Node.js and the [nodemailer](https://www.nodemailer.com/) package. This allows users to contact the developer directly from the site. The email sending API is accessible at `https://sendmail.gaetantremois.fr`
+- **Email Sending System:** Email sending is managed with Node.js and the [nodemailer](https://www.nodemailer.com/) package. This allows users to contact the developer directly from the site. The email sending API is accessible at `https://sendmail.gaetantremois.fr` and the [repo is here](https://github.com/gtcore902/portfolio-web-dev-backend).
 
 ### Features
 
