@@ -26,6 +26,7 @@ const Home = () => {
           title
           date
           content
+          excerpt
           categories {
             edges {
               node {
@@ -113,7 +114,6 @@ const Home = () => {
           {awardsSortedLength < awards.length && (
             <AddButton updateAwardsLength={updateAwardsLength} />
           )}
-          {/* <img className="awards-container__code-icon" src={codeIcon} alt="" /> */}
         </div>
       ) : (
         <div className="loader">Loading ...</div>
@@ -131,12 +131,8 @@ const Home = () => {
                 index % 2 === 0 ? 'project' : 'project project--reversed'
               }
               key={project.node.id}
-              title={
-                project.node.title
-                // .split('<h1 class="wp-block-heading">')[1]
-                // .split('</h1>')[0]
-              }
-              projectUrl={project.projectUrl}
+              title={project.node.title}
+              projectUrl={project.node.excerpt.split('<p>')[1].split('</p>')[0]}
               imageUrl={
                 project.node.content.split('src="')[1].split('" alt')[0]
               }
