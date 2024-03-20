@@ -9,6 +9,9 @@ const About = () => {
   let initialWebDate = new Date('01 Jan 2020 00:00:00 GMT');
   let now = Date.now();
   let nowDate = new Date(now);
+  const calculateYearsWorkXp = (initialDate) => {
+    return nowDate.getFullYear() - initialDate.getFullYear();
+  };
   return (
     <div id="a-propos" className="about">
       <div className="about__text">
@@ -23,37 +26,42 @@ const About = () => {
             Je suis développeur web passionné, cherchant une équipe passionnée!
           </h3>
           <p>
-            Avec une expérience enrichissante en{' '}
-            <strong>développement web</strong> et une expertise solide en{' '}
-            <strong>gestion de la clientèle</strong>, j'ai occupé des postes de
-            chargé d'affaires dans les secteurs des télécommunications et de
-            l'industrie.
+            Après avoir travaillé dans l'industrie, j'ai acquis une expérience
+            significative dans le <strong>développement web</strong> et une
+            solide expertise en <strong>gestion de clientèle</strong>. J'ai
+            occupé des postes de chargé d'affaires dans les secteurs des
+            télécommunications et de l'industrie.
             <br />
             <br />
-            Mon parcours a renforcé mes compétences en formation et gestion B2B.
+            Ce parcours a renforcé mes compétences en formation et en gestion
+            B2B.
             <br />
-            Après quelques années en tant que{' '}
-            <strong>développeur web freelance</strong>, je souhaite mettre ma{' '}
-            <strong>polyvalence</strong>, mon engagement, et ma capacité à
-            combiner des compétences, à contribution au sein d'une équipe, dans
-            un environnement axé sur le <strong>développement web</strong> et la{' '}
+            <br />
+            Après plusieurs années en tant que{' '}
+            <strong>développeur web freelance</strong>, je souhaite mettre à
+            profit ma <strong>polyvalence</strong>, mon engagement et ma
+            capacité à combiner différentes compétences au sein d'une équipe
+            axée sur le <strong>développement web</strong> et la{' '}
             <strong>relation client</strong>, que ce soit en présentiel ou à
             distance.
           </p>
           <div className="about__text__content__tags">
             <StatsTxt address="Résidence" city="Rouen" />
-            <StatsTxt address="Expérience" city="4+ Ans" />
+            <StatsTxt
+              address="Expérience"
+              city={`${calculateYearsWorkXp(initialWebDate)}+ Ans`}
+            />
             <StatsTxt address="diplôme" city="RNCP Dév. Web." />
           </div>
         </div>
       </div>
       <div className="about__stats">
         <StatsFlash
-          stat={`${nowDate.getFullYear() - initialProfDate.getFullYear()}+`}
+          stat={`${calculateYearsWorkXp(initialProfDate)}+`}
           title="années d'éxpérience prof."
         />
         <StatsFlash
-          stat={`${nowDate.getFullYear() - initialWebDate.getFullYear()}+`}
+          stat={`${calculateYearsWorkXp(initialWebDate)}+`}
           title="années d'éxpérience web"
         />
         <StatsFlash stat="10+" title="projets réalisés" />
