@@ -13,7 +13,7 @@ const Projects = ({
   return (
     <Link className={className} to={projectUrl}>
       <div className="project__image">
-        <img src={imageUrl} alt="" />
+        <img src={imageUrl} alt={title} />
       </div>
       <div className="project__content">
         <p className="project__content__tag">{tag}</p>
