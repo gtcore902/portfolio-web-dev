@@ -48,6 +48,7 @@ const ContactForm = () => {
         })
         .catch((error) => {
           setMessageSendingStatus("Erreur dans l'envoi de votre message");
+          setLoaderClass('');
         });
     };
 
