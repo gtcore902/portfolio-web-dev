@@ -16,8 +16,7 @@ const ContactForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(inputs);
-    // const url = 'http://localhost:4000/';
+    // console.log(inputs);
     const url = 'https://sendmail.gaetantremois.fr/sendmail';
 
     // send form
@@ -32,7 +31,7 @@ const ContactForm = () => {
         body: JSON.stringify(inputs),
       })
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           if (response.status !== 200) {
             throw new Error(response.statusText);
           }
