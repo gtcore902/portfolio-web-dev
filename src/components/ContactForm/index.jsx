@@ -3,7 +3,10 @@ import './ContactForm.scss';
 
 const ContactForm = () => {
   const [inputs, setInputs] = useState({});
+  const [errorInputName, setErrorInputName] = useState('');
+  const [errorInputEmail, setErrorInputEmail] = useState('');
   const [messageSendingStatus, setMessageSendingStatus] = useState('');
+  const [loaderClass, setLoaderClass] = useState(null);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -16,37 +19,70 @@ const ContactForm = () => {
     console.log(inputs);
     // const url = 'http://localhost:4000/';
     const url = 'https://sendmail.gaetantremois.fr/sendmail';
+
     // send form
-    fetch(url, {
-      method: 'POST',
-      // mode: 'no-cors',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(inputs),
-    })
-      .then((response) => {
-        console.log(response);
-        if (response.status !== 200) {
-          throw new Error(response.statusText);
-        }
+    const sendForm = () => {
+      fetch(url, {
+        method: 'POST',
+        // mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(inputs),
       })
-      .then(() => {
-        setMessageSendingStatus('Merci pour votre message!');
-      })
-      .then(() => {
-        setInputs('');
-      })
-      .catch((error) => {
-        setMessageSendingStatus("Erreur dans l'envoi de votre message");
-      });
+        .then((response) => {
+          console.log(response);
+          if (response.status !== 200) {
+            throw new Error(response.statusText);
+          }
+        })
+        .then(() => {
+          setLoaderClass('');
+        })
+        .then(() => {
+          setMessageSendingStatus('Merci pour votre message!');
+        })
+        .then(() => {
+          setInputs('');
+        })
+        .catch((error) => {
+          setMessageSendingStatus("Erreur dans l'envoi de votre message");
+        });
+    };
+
+    // Check user entries
+    function validateEmail(userMail) {
+      let regexEmail = new RegExp('[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+');
+      return regexEmail.test(userMail);
+    }
+    function validateName(userName) {
+      if (inputs.name !== undefined) {
+        userName = userName.trim();
+        return userName !== '';
+      }
+    }
+    !validateName(inputs.name)
+      ? setErrorInputName('Nom ne doit pas être vide!')
+      : setErrorInputName('');
+
+    !validateEmail(inputs.email)
+      ? setErrorInputEmail('Adresse email non valide!')
+      : setErrorInputEmail('');
+
+    if (validateEmail(inputs.email) && validateName(inputs.name)) {
+      setLoaderClass('sender');
+      sendForm();
+    }
   };
 
   return (
     <div>
       <form className="contactForm" method="post" onSubmit={handleSubmit}>
-        <label htmlFor="name">Nom</label>
+        <label htmlFor="name">
+          Nom<span>{errorInputName}</span>
+        </label>
+
         <input
           type="text"
           name="name"
@@ -54,7 +90,10 @@ const ContactForm = () => {
           value={inputs.name || ''}
           onChange={handleChange}
         />
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">
+          Email<span>{errorInputEmail}</span>
+        </label>
+
         <input
           type="email"
           name="email"
@@ -71,6 +110,7 @@ const ContactForm = () => {
           value={inputs.message || ''}
           onChange={handleChange}
         ></textarea>
+        <div className={loaderClass}></div>
         {messageSendingStatus !== '' && (
           <p className="message-sending-status">{messageSendingStatus}</p>
         )}
