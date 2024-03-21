@@ -4,6 +4,8 @@
 
 The site is a personal portfolio designed to showcase the skills, projects, and professional experience of a web developer.
 
+Website visible :tv: at [gaetantremois.fr](https://gaetantremois.fr/)
+
 ### Technologies Used
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![WordPress](https://img.shields.io/badge/WordPress-%23117AC9.svg?style=for-the-badge&logo=WordPress&logoColor=white) ![GraphQL](https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)
@@ -16,9 +18,9 @@ The site is a personal portfolio designed to showcase the skills, projects, and 
 
 ### Features
 
-- **Project Presentation:** The site showcases a selection of the developer's best projects, with detailed descriptions, screenshots, and links to corresponding GitHub repositories.
+- **Project Presentation:** The site showcases a selection of best projects, with detailed descriptions, screenshots, and links to corresponding GitHub repositories.
 
-- **Professional Experience:** A dedicated section highlights the developer's professional experience, including information on positions held, responsibilities, and achievements.
+- **Professional Experience:** A dedicated section highlights professional experience, including information on positions held, responsibilities, and achievements.
 
 - **Contact Form:** Visitors can use a contact form to send messages to the developer. Messages are sent directly to the developer's email address using the email sending API.
 
