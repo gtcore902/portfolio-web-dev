@@ -25,7 +25,24 @@
       display: none;
     }
     &__link {
+      position: relative;
       padding: 8px 16px;
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: '';
+        width: 50%;
+        height: 1px;
+        transform-origin: center;
+        transform: translateX(50%) scale(0);
+        background-color: shared.$flash-color;
+        @include shared.main-transition(transform);
+        @include shared.main-animation;
+      }
+      &:hover::after {
+        transform: translateX(50%) scale(01);
+      }
     }
   }
 }
