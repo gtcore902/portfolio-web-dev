@@ -98,17 +98,19 @@ const Home = () => {
         <div className="awards-container">
           {awardsSorted.map((award, index) => (
             <Awards
-              key={award.node.id}
+              key={award?.node?.id}
               index={index + 1}
-              title={award.node.title}
+              title={award?.node?.title}
               organization={
-                award.node.content
-                  .split('<h2 class="wp-block-heading">')[1]
-                  .split('</h2>')[0]
+                award?.node?.content
+                  ?.split('<h2 class="wp-block-heading">')?.[1]
+                  ?.split('</h2>')?.[0] || ''
               }
-              date={`${award.node.date.split('-')[1]}/${
-                award.node.date.split('-')[0]
-              }`}
+              date={
+                `${award?.node?.date?.split('-')?.[1]}/${
+                  award?.node?.date?.split('-')?.[0]
+                }` || ''
+              }
             />
           ))}
           {awardsSortedLength < awards.length && (
@@ -130,16 +132,18 @@ const Home = () => {
               className={
                 index % 2 === 0 ? 'project' : 'project project--reversed'
               }
-              key={project.node.id}
-              title={project.node.title}
-              projectUrl={project.node.excerpt.split('<p>')[1].split('</p>')[0]}
+              key={project?.node?.id}
+              title={project?.node?.title}
+              projectUrl={
+                project?.node?.excerpt?.split('<p>')?.[1].split('</p>')?.[0]
+              }
               imageUrl={
-                project.node.content.split('src="')[1].split('" alt')[0]
+                project?.node?.content?.split('src="')?.[1].split('" alt')?.[0]
               }
               tag={
-                project.node.content
-                  .split('<h2 class="wp-block-heading">')[1]
-                  .split('</h2>')[0]
+                project?.node?.content
+                  ?.split('<h2 class="wp-block-heading">')?.[1]
+                  ?.split('</h2>')?.[0]
               }
             />
           ))}
