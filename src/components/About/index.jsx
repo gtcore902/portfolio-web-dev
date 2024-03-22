@@ -15,13 +15,13 @@ const About = () => {
   return (
     <div id="a-propos" className="about">
       <div className="about__text">
-        <div className="about__text__title">
+        <div className="about__text__title animatable">
           GAETAN
           <FontAwesomeIcon className="flash-color icon-margin" icon={faCode} />
           TREMOIS
           <h2>Développeur web Fullstack Javascript</h2>
         </div>
-        <div className="about__text__content">
+        <div className="about__text__content animatable">
           <h3 className="about__text__content__title">
             Je suis développeur web passionné, cherchant une équipe passionnée!
           </h3>
@@ -55,7 +55,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="about__stats">
+      <div className="about__stats animatable">
         <StatsFlash
           stat={`${calculateYearsWorkXp(initialProfDate)}+`}
           title="années d'éxpérience prof."

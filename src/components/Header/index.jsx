@@ -24,7 +24,7 @@ const Header = () => {
       </nav>
       <ContactBtn
         href="#contact"
-        className="contact-link"
+        className="contact-link contact-link--animation hoverAnimation"
         textContent="Contact"
       />
     </div>

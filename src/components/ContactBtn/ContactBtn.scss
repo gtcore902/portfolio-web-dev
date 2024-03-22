@@ -1,6 +1,7 @@
 @use '../../_shared.scss';
 
 .contact-link {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,6 +10,7 @@
   padding: 8px 25px;
   border: solid 1px shared.$base-color;
   width: max-content;
+  // z-index: 1;
   &--background-light {
     background-color: transparent;
     color: shared.$base-color;
@@ -16,5 +18,9 @@
   &--background-dark {
     background-color: shared.$base-color;
     color: white;
+  }
+  &--animation:hover {
+    color: white;
+    @include shared.main-transition(all);
   }
 }

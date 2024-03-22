@@ -9,7 +9,7 @@ import './Hero.scss';
 const Hero = () => {
   return (
     <div className="hero">
-      <div className="hero__informations">
+      <div className="hero__informations opacityAnimation">
         <h1>
           HI, I'M GAETAN. <br />
           DEVELOPPEUR
@@ -44,8 +44,7 @@ const Hero = () => {
       </div>
       <div className="hero__image__container">
         <img
-          className="hero__image__container__image__profil"
-          // src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          className="hero__image__container__image__profil opacityAnimation"
           src={profilImg}
           alt="Gaëtan TREMOIS Développeur web"
         />

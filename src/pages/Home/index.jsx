@@ -10,6 +10,7 @@ import Projects from '../../components/Projects';
 import ContactForm from '../../components/ContactForm';
 import Footer from '../../components/Footer';
 import '../../awardsContainer.scss';
+import '../../_shared.scss';
 
 const Home = () => {
   const [awards, setAwards] = useState([]);

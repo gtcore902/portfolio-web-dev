@@ -11,7 +11,7 @@ const Projects = ({
   className,
 }) => {
   return (
-    <Link className={className} to={projectUrl}>
+    <Link className={`${className} animatable`} to={projectUrl}>
       <div className="project__image">
         <img src={imageUrl} alt={title} />
       </div>

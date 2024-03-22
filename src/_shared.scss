@@ -12,6 +12,10 @@ $main-font-size: 1rem;
   font-family: 'Bai Jamjuree', sans-serif;
 }
 
+@mixin main-transition($name) {
+  animation: $name 0.3s cubic-bezier(0.01, 0.95, 0, 1) both;
+}
+
 html {
   background-color: $background-color;
   scroll-behavior: smooth;
@@ -38,6 +42,29 @@ a {
 
 .icon-margin {
   margin: auto 15px;
+}
+
+.hoverAnimation:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: $base-color;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  @include main-transition(apparition);
+}
+
+@keyframes apparition {
+  to {
+    transform: scaleX(1);
+  }
 }
 
 @mixin main-animation {
@@ -86,5 +113,36 @@ a {
     box-shadow: 19px -19px 0 0px, 38px -19px 0 5px, 57px -19px 0 0px,
       19px 0 0 0px, 38px 0 0 5px, 57px 0 0 0px, 19px 19px 0 5px, 38px 19px 0 0px,
       57px 19px 0 0px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .animatable {
+      opacity: 0;
+      transform: scale(0.8);
+      animation: fadeIn linear both;
+      animation-timeline: view();
+      animation-range-start: cover;
+      animation-range-end: 500px;
+    }
+  }
+  .opacityAnimation {
+    opacity: 0;
+    transform: scale(0.8);
+    animation: opacity 0.3s linear both;
+  }
+}
+
+@keyframes opacity {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
