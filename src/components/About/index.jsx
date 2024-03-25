@@ -23,7 +23,8 @@ const About = () => {
         </div>
         <div className="about__text__content animatable">
           <h3 className="about__text__content__title">
-            Je suis développeur web passionné, cherchant une équipe passionnée!
+            Je suis développeur web passionné, cherchant une équipe
+            passionnée&nbsp;!
           </h3>
           <p>
             Après avoir travaillé dans l'industrie, j'ai acquis une expérience
@@ -58,11 +59,11 @@ const About = () => {
       <div className="about__stats animatable">
         <StatsFlash
           stat={`${calculateYearsWorkXp(initialProfDate)}+`}
-          title="années d'éxpérience prof."
+          title="années d'expérience prof."
         />
         <StatsFlash
           stat={`${calculateYearsWorkXp(initialWebDate)}+`}
-          title="années d'éxpérience web"
+          title="années d'expérience web"
         />
         <StatsFlash stat="10+" title="projets réalisés" />
       </div>

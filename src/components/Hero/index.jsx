@@ -11,14 +11,14 @@ const Hero = () => {
     <div className="hero">
       <div className="hero__informations opacityAnimation">
         <h1>
-          HI, I'M GAETAN. <br />
-          DEVELOPPEUR
+          Bonjour, je suis Gaëtan. <br />
+          Développeur
           <FontAwesomeIcon
             icon={faCode}
             size="2xs"
             className="flash-color icon-margin"
           />
-          WEB
+          web
         </h1>
         <h2 className="hero__informations__h2title">
           React JS

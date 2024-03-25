@@ -155,7 +155,7 @@ const Home = () => {
       <SectionTitle
         id="contact"
         title="Contact"
-        subtitle={'Un besoin, un projet ?'}
+        subtitle={'Une collaboration, un projet ?'}
       />
       <ContactForm />
       <Footer />
