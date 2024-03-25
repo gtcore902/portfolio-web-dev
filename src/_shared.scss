@@ -116,23 +116,23 @@ a {
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    .animatable {
-      opacity: 0;
-      transform: scale(0.8);
-      animation: fadeIn linear both;
-      animation-timeline: view();
-      animation-range-start: cover;
-      animation-range-end: 500px;
-    }
-  }
-  .opacityAnimation {
-    opacity: 0;
-    transform: scale(0.8);
-    animation: opacity 0.3s linear both;
-  }
-}
+// @media (prefers-reduced-motion: no-preference) {
+//   @supports (animation-timeline: view()) {
+//     .animatable {
+//       opacity: 0;
+//       transform: scale(0.8);
+//       animation: fadeIn linear both;
+//       animation-timeline: view();
+//       animation-range-start: cover;
+//       animation-range-end: 300px;
+//     }
+//   }
+//   .opacityAnimation {
+//     opacity: 0;
+//     transform: scale(0.8);
+//     animation: opacity 0.3s linear both;
+//   }
+// }
 
 @keyframes opacity {
   to {
