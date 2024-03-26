@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
+import RECAPTCHA_KEY from '../../RECAPTCHA_KEY.js';
 import './ContactForm.scss';
 
 const ContactForm = () => {
   const [inputs, setInputs] = useState({});
   const [rgdpClass, setRgpdClass] = useState('');
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
   const [errorInputName, setErrorInputName] = useState('');
   const [errorInputEmail, setErrorInputEmail] = useState('');
   const [messageSendingStatus, setMessageSendingStatus] = useState('');
@@ -82,7 +85,8 @@ const ContactForm = () => {
     if (
       validateEmail(inputs.email) &&
       validateName(inputs.name) &&
-      validateCheckedRgpd(inputs.checkbox)
+      validateCheckedRgpd(inputs.checkbox) &&
+      recaptchaValue !== null
     ) {
       setLoaderClass('sender');
       sendForm();
@@ -138,10 +142,15 @@ const ContactForm = () => {
           />
           <label htmlFor="checkbox" className={rgdpClass}>
             Les données collectées seront communiquées aux seuls destinataires
-            suivants : Gaëtan TREMOIS. Les données sont conservées seulement le
-            temps nécessaire au traitement de votre message.
+            suivants&nbsp;: Gaëtan TREMOIS. Les données sont conservées
+            seulement le temps nécessaire au traitement de votre message.
           </label>
         </div>
+        <ReCAPTCHA
+          sitekey={RECAPTCHA_KEY}
+          onChange={(val) => setRecaptchaValue(val)}
+          style={{ margin: 'auto' }}
+        />
         <div className={loaderClass}></div>
         {messageSendingStatus !== '' && (
           <p className="message-sending-status">{messageSendingStatus}</p>
