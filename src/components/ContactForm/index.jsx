@@ -3,6 +3,7 @@ import './ContactForm.scss';
 
 const ContactForm = () => {
   const [inputs, setInputs] = useState({});
+  const [rgdpClass, setRgpdClass] = useState('');
   const [errorInputName, setErrorInputName] = useState('');
   const [errorInputEmail, setErrorInputEmail] = useState('');
   const [messageSendingStatus, setMessageSendingStatus] = useState('');
@@ -11,12 +12,13 @@ const ContactForm = () => {
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setInputs((values) => ({ ...values, [name]: value }));
+    const checked = event.target.checked;
+    setInputs((values) => ({ ...values, [name]: value, checkbox: checked }));
+    console.log(inputs);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(inputs);
     const url = 'https://sendmail.gaetantremois.fr/sendmail';
 
     // send form
@@ -31,7 +33,6 @@ const ContactForm = () => {
         body: JSON.stringify(inputs),
       })
         .then((response) => {
-          // console.log(response);
           if (response.status !== 200) {
             throw new Error(response.statusText);
           }
@@ -62,6 +63,10 @@ const ContactForm = () => {
         return userName !== '';
       }
     }
+    function validateCheckedRgpd(rgpd) {
+      console.log(rgpd);
+      return rgpd;
+    }
     !validateName(inputs.name)
       ? setErrorInputName('Nom ne doit pas être vide!')
       : setErrorInputName('');
@@ -70,7 +75,14 @@ const ContactForm = () => {
       ? setErrorInputEmail('Adresse email non valide!')
       : setErrorInputEmail('');
 
-    if (validateEmail(inputs.email) && validateName(inputs.name)) {
+    !validateCheckedRgpd(inputs.checkbox)
+      ? setRgpdClass('error')
+      : setRgpdClass('');
+    if (
+      validateEmail(inputs.email) &&
+      validateName(inputs.name) &&
+      validateCheckedRgpd(inputs.checkbox)
+    ) {
       setLoaderClass('sender');
       sendForm();
     }
@@ -110,6 +122,21 @@ const ContactForm = () => {
           value={inputs.message || ''}
           onChange={handleChange}
         ></textarea>
+        <div className="checkbox-container">
+          <input
+            type="checkbox"
+            name="checkbox"
+            id="checkbox"
+            value={inputs.checkbox || false}
+            onChange={handleChange}
+            // onChange={() => setRgpd(rgdp ? false : true)}
+          />
+          <label htmlFor="checkbox" className={rgdpClass}>
+            Les données collectées seront communiquées aux seuls destinataires
+            suivants : Gaëtan TREMOIS. Les données sont conservées seulement le
+            temps nécessaire au traitement de votre message.
+          </label>
+        </div>
         <div className={loaderClass}></div>
         {messageSendingStatus !== '' && (
           <p className="message-sending-status">{messageSendingStatus}</p>

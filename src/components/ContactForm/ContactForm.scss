@@ -28,6 +28,19 @@
       min-height: 30px;
     }
   }
+  & .checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & label {
+      font-weight: normal;
+    }
+    & input[type='checkbox'] {
+      padding: 20px;
+      margin: 0 15px 0 0;
+      width: 40px;
+    }
+  }
   &__submitBtn {
     display: flex;
     justify-content: center;

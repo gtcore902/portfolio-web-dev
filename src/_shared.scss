@@ -48,6 +48,10 @@ a {
   margin: auto 15px;
 }
 
+.error {
+  color: $flash-color;
+}
+
 .hoverAnimation:hover::after {
   content: '';
   position: absolute;
