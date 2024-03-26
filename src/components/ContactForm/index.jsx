@@ -14,7 +14,7 @@ const ContactForm = () => {
     const value = event.target.value;
     const checked = event.target.checked;
     setInputs((values) => ({ ...values, [name]: value, checkbox: checked }));
-    console.log(inputs);
+    // console.log(inputs);
   };
 
   const handleSubmit = (event) => {
@@ -44,7 +44,9 @@ const ContactForm = () => {
           setMessageSendingStatus('Merci pour votre message!');
         })
         .then(() => {
-          setInputs('');
+          setInputs({});
+          setRgpdClass('');
+          document.getElementById('contactForm').reset();
         })
         .catch((error) => {
           setMessageSendingStatus("Erreur dans l'envoi de votre message");
@@ -64,7 +66,6 @@ const ContactForm = () => {
       }
     }
     function validateCheckedRgpd(rgpd) {
-      console.log(rgpd);
       return rgpd;
     }
     !validateName(inputs.name)
@@ -90,7 +91,12 @@ const ContactForm = () => {
 
   return (
     <div>
-      <form className="contactForm" method="post" onSubmit={handleSubmit}>
+      <form
+        id="contactForm"
+        className="contactForm"
+        method="post"
+        onSubmit={handleSubmit}
+      >
         <label htmlFor="name">
           Nom<span>{errorInputName}</span>
         </label>
