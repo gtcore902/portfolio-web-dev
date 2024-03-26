@@ -129,7 +129,6 @@ const ContactForm = () => {
             id="checkbox"
             value={inputs.checkbox || false}
             onChange={handleChange}
-            // onChange={() => setRgpd(rgdp ? false : true)}
           />
           <label htmlFor="checkbox" className={rgdpClass}>
             Les données collectées seront communiquées aux seuls destinataires
