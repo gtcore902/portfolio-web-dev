@@ -8,34 +8,48 @@
   @media all and (max-width: 1200px) {
     gap: 30px;
   }
-  @media all and (max-width: 750px) {
+  @media all and (max-width: 850px) {
     flex-direction: column;
     margin: 30px shared.$mobile-margin;
   }
 
   &__image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // width: 40%;
-    width: auto;
-    overflow: hidden;
-    object-fit: cover;
-    @media all and (max-width: 750px) {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    width: 40%;
+    @media all and (max-width: 1200px) {
+      width: 50%;
+    }
+    @media all and (max-width: 850px) {
       width: 100%;
     }
 
-    & img {
-      width: 400px;
-      height: auto;
+    & a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // width: 40%;
+      // max-width: 400px;
+      // max-height: 237px;
+      overflow: hidden;
       object-fit: cover;
-      @include shared.main-animation;
       @media all and (max-width: 750px) {
         width: 100%;
       }
-      &:hover {
+
+      & img {
+        width: 400px;
+        max-height: 600px;
+        object-fit: cover;
         @include shared.main-animation;
-        transform: scale(1.1);
+        @media all and (max-width: 750px) {
+          width: 100%;
+        }
+        &:hover {
+          @include shared.main-animation;
+          transform: scale(1.1);
+        }
       }
     }
   }
@@ -45,7 +59,10 @@
     justify-content: space-between;
     width: 60%;
     line-height: 1.6rem;
-    @media all and (max-width: 750px) {
+    @media all and (max-width: 1200px) {
+      width: 50%;
+    }
+    @media all and (max-width: 850px) {
       width: 100%;
     }
     &__tag {
@@ -66,27 +83,26 @@
       font-size: 2rem;
       font-weight: 700;
       line-height: 2.5rem;
-
       @media all and (max-width: 1200px) {
         font-size: 2.5rem;
       }
     }
-    p:last-of-type {
+    .link {
       font-size: 1.135rem;
       font-weight: 600;
-      // text-decoration: underline;
       color: shared.$flash-color;
+      width: max-content;
+      @include shared.main-animation(transform);
+      &:hover {
+        @include shared.main-animation(transform);
+        transform: translateX(5px);
+      }
     }
   }
   &--reversed {
     flex-direction: row-reverse;
-    @media all and (max-width: 750px) {
+    @media all and (max-width: 850px) {
       flex-direction: column;
     }
   }
 }
-
-// .project:hover .project__image img {
-//   @include shared.main-animation;
-//   transform: scale(1.1);
-// }

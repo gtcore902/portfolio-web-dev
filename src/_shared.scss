@@ -18,8 +18,8 @@ $main-font-size: 1rem;
   animation: $name 0.3s cubic-bezier(0.01, 0.95, 0, 1) both;
 }
 
-@mixin main-animation($name: all) {
-  transition: $name 0.15s ease-in;
+@mixin main-animation($name: all, $time: 0.15s) {
+  transition: $name $time ease-in;
 }
 
 html {

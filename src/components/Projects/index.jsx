@@ -6,25 +6,29 @@ import './Projects.scss';
 
 const Projects = ({ title, projectUrl, imageUrl, description, className }) => {
   return (
-    <Link className={`${className} animatable`} to={projectUrl}>
+    <div className={`${className} animatable`}>
       <div className="project__image">
-        <img src={imageUrl} alt={title} />
+        <Link to={projectUrl}>
+          <img src={imageUrl} alt={title} />
+        </Link>
       </div>
       <div className="project__content">
         <div className="project__content__tag"></div>
         <h4>{title}</h4>
-        <p>{description}</p>
-        <p>
-          Voir le projet
-          <FontAwesomeIcon
-            style={{ marginLeft: '5px' }}
-            icon={faArrowUpRightFromSquare}
-            className="flash-color"
-            size="sm"
-          />
-        </p>
+        <p className="description">{description}</p>
+        <Link to={projectUrl}>
+          <p className="link">
+            <span>Voir le projet</span>
+            <FontAwesomeIcon
+              style={{ marginLeft: '5px' }}
+              icon={faArrowUpRightFromSquare}
+              className="flash-color"
+              size="sm"
+            />
+          </p>
+        </Link>
       </div>
-    </Link>
+    </div>
   );
 };
 
