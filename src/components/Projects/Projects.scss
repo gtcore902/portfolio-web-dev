@@ -65,6 +65,8 @@
       margin: 0;
       font-size: 2rem;
       font-weight: 700;
+      line-height: 2.5rem;
+
       @media all and (max-width: 1200px) {
         font-size: 2.5rem;
       }
@@ -72,7 +74,8 @@
     p:last-of-type {
       font-size: 1.135rem;
       font-weight: 600;
-      text-decoration: underline;
+      // text-decoration: underline;
+      color: shared.$flash-color;
     }
   }
   &--reversed {
