@@ -13,7 +13,7 @@ const About = () => {
     return nowDate.getFullYear() - initialDate.getFullYear();
   };
   return (
-    <div id="a-propos" className="about">
+    <div className="about">
       <div className="about__text">
         <div className="about__text__title animatable">
           GAETAN

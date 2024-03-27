@@ -4,7 +4,7 @@ import './Banner.scss';
 
 const Banner = () => {
   return (
-    <div className="banner-container">
+    <div id="a-propos" className="banner-container">
       <div className="banner-container__content">
         <div className="banner-container__content__techno">javascript</div>
         <FontAwesomeIcon className="flash-color" icon={faGear} />

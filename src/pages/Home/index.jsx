@@ -134,18 +134,19 @@ const Home = () => {
                 index % 2 === 0 ? 'project' : 'project project--reversed'
               }
               key={project?.node?.id}
-              title={project?.node?.title}
+              title={project?.node?.title.replaceAll('&#8217;', "'")}
               projectUrl={
                 project?.node?.excerpt?.split('<p>')?.[1].split('</p>')?.[0]
               }
               imageUrl={
                 project?.node?.content?.split('src="')?.[1].split('" alt')?.[0]
               }
-              tag={
+              description={String(
                 project?.node?.content
                   ?.split('<h2 class="wp-block-heading">')?.[1]
                   ?.split('</h2>')?.[0]
-              }
+                  .replaceAll('&#8217;', "'")
+              )}
             />
           ))}
         </div>

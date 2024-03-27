@@ -33,6 +33,10 @@
       @media all and (max-width: 750px) {
         width: 100%;
       }
+      &:hover {
+        @include shared.main-animation;
+        transform: scale(1.1);
+      }
     }
   }
   &__content {
@@ -40,6 +44,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 60%;
+    line-height: 1.6rem;
     @media all and (max-width: 750px) {
       width: 100%;
     }
@@ -51,8 +56,8 @@
       width: max-content;
       text-transform: uppercase;
       letter-spacing: 0.08rem;
-      padding: 5px 10px;
-      // padding: 12px 16px;
+      width: 20px;
+      height: 10px;
       margin-top: 0;
       margin-bottom: 32px;
     }
@@ -78,7 +83,7 @@
   }
 }
 
-.project:hover .project__image img {
-  @include shared.main-animation;
-  transform: scale(1.1);
-}
+// .project:hover .project__image img {
+//   @include shared.main-animation;
+//   transform: scale(1.1);
+// }
