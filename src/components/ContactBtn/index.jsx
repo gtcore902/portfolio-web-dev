@@ -1,8 +1,8 @@
 import './ContactBtn.scss';
 
-const ContactBtn = ({ textContent, className, href }) => {
+const ContactBtn = ({ textContent, className, href, scrollHandler }) => {
   return (
-    <a href={href} className={className}>
+    <a href={href} className={className} onClick={scrollHandler}>
       {textContent}
     </a>
   );

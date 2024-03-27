@@ -6,7 +6,7 @@ import ContactBtn from '../ContactBtn';
 import './Hero.scss';
 // import '../ContactBtn/ContactBtn.scss';
 
-const Hero = () => {
+const Hero = ({ scrollToElement }) => {
   return (
     <div className="hero">
       <div className="hero__informations opacityAnimation">
@@ -34,11 +34,13 @@ const Hero = () => {
             href="#contact"
             className="contact-link contact-link--background-dark"
             textContent="Un projet ?"
+            scrollHandler={scrollToElement}
           />
           <ContactBtn
             href="#contact"
             className="contact-link contact-link--background-light"
             textContent="Contact"
+            scrollHandler={scrollToElement}
           />
         </div>
       </div>

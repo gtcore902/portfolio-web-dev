@@ -53,11 +53,7 @@ const Home = () => {
         }),
       });
       let datas = await response.json();
-      // console.log(datas.data.posts.edges);
-      // console.log(typeof datas.data.posts.edges);
-      // console.log(Array.from(datas.data.posts.edges));
-      datas = Array.from(datas.data.posts.edges); // check for second call for projects
-      // console.log(datas);
+      datas = Array.from(datas.data.posts.edges);
       setAwards(
         datas.filter(
           (element) =>
@@ -88,10 +84,16 @@ const Home = () => {
     setAwardsSortded(awards.slice(0, 4));
   }, [awards]);
 
+  const scrollToElement = (e) => {
+    e.preventDefault();
+    let element = document.getElementById(e.target.href.split('#')[1]);
+    element.scrollIntoView();
+  };
+
   return (
     <div>
-      <Header />
-      <Hero />
+      <Header scrollToElement={scrollToElement} />
+      <Hero scrollToElement={scrollToElement} />
       <Banner />
       <About />
       <SectionTitle title="Certifications" subtitle="Certificats de réussite" />

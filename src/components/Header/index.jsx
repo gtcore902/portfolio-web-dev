@@ -4,7 +4,13 @@ import ContactBtn from '../ContactBtn';
 import './Header.scss';
 import '../ContactBtn/ContactBtn.scss';
 
-const Header = () => {
+const Header = ({ scrollToElement }) => {
+  // const scrollToElement = (e) => {
+  //   e.preventDefault();
+  //   let element = document.getElementById(e.target.href.split('#')[1]);
+  //   console.log(element);
+  //   element.scrollIntoView();
+  // };
   return (
     <div className="header">
       <div className="header__logo">
@@ -15,10 +21,14 @@ const Header = () => {
       <nav>
         <ul className="header__nav">
           <li className="header__nav__link">
-            <a href="#a-propos">à propos</a>
+            <a href="#a-propos" onClick={scrollToElement}>
+              à propos
+            </a>
           </li>
           <li className="header__nav__link">
-            <a href="#projects">Projets</a>
+            <a href="#projects" onClick={scrollToElement}>
+              Projets
+            </a>
           </li>
         </ul>
       </nav>
@@ -26,6 +36,7 @@ const Header = () => {
         href="#contact"
         className="contact-link contact-link--animation hoverAnimation"
         textContent="Contact"
+        scrollHandler={scrollToElement}
       />
     </div>
   );
