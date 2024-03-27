@@ -162,7 +162,6 @@ const Home = () => {
       />
       <ContactForm />
       <Footer />
-      {/* </Suspense> */}
     </div>
   );
 };

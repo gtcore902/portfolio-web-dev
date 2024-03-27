@@ -5,12 +5,6 @@ import './Header.scss';
 import '../ContactBtn/ContactBtn.scss';
 
 const Header = ({ scrollToElement }) => {
-  // const scrollToElement = (e) => {
-  //   e.preventDefault();
-  //   let element = document.getElementById(e.target.href.split('#')[1]);
-  //   console.log(element);
-  //   element.scrollIntoView();
-  // };
   return (
     <div className="header">
       <div className="header__logo">

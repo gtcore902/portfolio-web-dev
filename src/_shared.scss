@@ -1,8 +1,6 @@
 $base-color: #161513;
 $flash-color: #e94d35;
-// $background-color: #f2f1ef;
 $background-color: white;
-// $secondary-background-color: #e6e3de;
 $secondary-background-color: #f2f1ef;
 $desktop-margin: 15vw;
 $mobile-margin: 5vw;
@@ -34,7 +32,7 @@ body {
   font-size: $main-font-size;
   font-weight: 500;
   color: $base-color;
-  max-width: 1920px; // Check
+  max-width: 1920px;
 }
 
 a {
@@ -77,7 +75,6 @@ a {
   }
 }
 
-/* HTML: <div class="loader"></div> */
 .loader {
   width: 4px;
   color: #000;

@@ -14,9 +14,6 @@
   }
 
   &__image {
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
     width: 40%;
     @media all and (max-width: 1200px) {
       width: 50%;
@@ -29,9 +26,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      // width: 40%;
-      // max-width: 400px;
-      // max-height: 237px;
       overflow: hidden;
       object-fit: cover;
       @media all and (max-width: 750px) {

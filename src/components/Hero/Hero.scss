@@ -5,7 +5,6 @@
   justify-content: space-between;
   margin: 100px shared.$desktop-margin;
   @media all and (max-width: 1000px) {
-    // margin: 30px shared.$mobile-margin;
     flex-direction: column;
     gap: 30px;
   }
