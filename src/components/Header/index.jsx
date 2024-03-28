@@ -8,15 +8,30 @@ import './Header.scss';
 import '../ContactBtn/ContactBtn.scss';
 
 const Header = ({ scrollToElement }) => {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
+  const getTheme = () => {
+    if (localStorage.getItem('isDark') === 'true') {
+      setIsDark(true);
+      document.querySelector('body').setAttribute('data-theme', 'dark');
+    } else {
+      setIsDark(false);
+      document.querySelector('body').setAttribute('data-theme', 'light');
+    }
+  };
   const setDarkMode = () => {
-    isDark
-      ? document.querySelector('body').setAttribute('data-theme', 'light')
-      : document.querySelector('body').setAttribute('data-theme', 'dark');
+    if (isDark) {
+      document.querySelector('body').setAttribute('data-theme', 'light');
+      localStorage.setItem('isDark', 'false');
+      setIsDark(false);
+    } else {
+      document.querySelector('body').setAttribute('data-theme', 'dark');
+      localStorage.setItem('isDark', 'true');
+      setIsDark(true);
+    }
   };
   useEffect(() => {
-    setDarkMode();
-  }, [isDark]);
+    getTheme();
+  }, []);
 
   return (
     <div className="header">
@@ -27,14 +42,16 @@ const Header = ({ scrollToElement }) => {
       <Toggle
         id="dark-mode"
         className="dark-mode"
-        defaultChecked={isDark ? false : true}
+        defaultChecked={
+          localStorage.getItem('isDark') === 'true' ? true : false
+        }
         aria-labelledby="dark-mode"
         aria-label="dark-mode"
         icons={{
           checked: <FontAwesomeIcon icon={faMoon} size="2xs" />,
           unchecked: <FontAwesomeIcon icon={faSun} size="2xs" />,
         }}
-        onChange={() => setIsDark(!isDark ? true : false)}
+        onChange={setDarkMode}
       />
 
       <nav>
