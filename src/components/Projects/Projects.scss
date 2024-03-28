@@ -27,6 +27,12 @@
       align-items: center;
       overflow: hidden;
       object-fit: cover;
+      @media all and (max-width: 1400px) {
+        justify-content: center;
+      }
+      @media all and (max-width: 850px) {
+        justify-content: center;
+      }
       @media all and (max-width: 750px) {
         width: 100%;
       }
