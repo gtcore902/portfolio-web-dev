@@ -153,7 +153,9 @@ const ContactForm = () => {
         />
         <div className={loaderClass}></div>
         {messageSendingStatus !== '' && (
-          <p className="message-sending-status">{messageSendingStatus}</p>
+          <p aria-label="message d'erreur" className="message-sending-status">
+            {messageSendingStatus}
+          </p>
         )}
         <input
           type="submit"
