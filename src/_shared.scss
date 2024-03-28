@@ -85,7 +85,12 @@ a {
 .error {
   color: $flash-color;
 }
-
+.dark-mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15px;
+}
 .hoverAnimation:hover::after {
   content: '';
   position: absolute;
