@@ -9,6 +9,8 @@ import '../ContactBtn/ContactBtn.scss';
 
 const Header = ({ scrollToElement }) => {
   const [isDark, setIsDark] = useState(false);
+
+  // Check if dark mode is set in local storage
   const getTheme = () => {
     if (localStorage.getItem('isDark') === 'true') {
       setIsDark(true);
@@ -18,6 +20,7 @@ const Header = ({ scrollToElement }) => {
       document.querySelector('body').setAttribute('data-theme', 'light');
     }
   };
+
   const setDarkMode = () => {
     if (isDark) {
       document.querySelector('body').setAttribute('data-theme', 'light');
@@ -29,6 +32,7 @@ const Header = ({ scrollToElement }) => {
       setIsDark(true);
     }
   };
+
   useEffect(() => {
     getTheme();
   }, []);
