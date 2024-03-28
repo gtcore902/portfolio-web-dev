@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   font-weight: 700;
-  margin: 10px shared.$desktop-margin 0 shared.$desktop-margin;
+  margin: 0 shared.$desktop-margin 0 shared.$desktop-margin;
   @media all and (max-width: 600px) {
     margin: 10px shared.$mobile-margin 0 shared.$mobile-margin;
   }

@@ -23,8 +23,4 @@
       font-size: 3.5rem;
     }
   }
-  &:nth-child(even) {
-    background-color: shared.$base-color;
-    color: white;
-  }
 }

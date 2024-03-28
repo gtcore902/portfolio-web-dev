@@ -7,7 +7,7 @@ import './Hero.scss';
 
 const Hero = ({ scrollToElement }) => {
   return (
-    <div className="hero">
+    <div className="hero" data-theme="dark">
       <div className="hero__informations opacityAnimation">
         <h1>
           Bonjour, je suis Gaëtan. <br />

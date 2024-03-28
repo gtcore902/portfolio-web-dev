@@ -6,20 +6,8 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: inherit;
   padding: 8px 25px;
   border: solid 1px shared.$base-color;
   width: max-content;
-  &--background-light {
-    background-color: transparent;
-    color: shared.$base-color;
-  }
-  &--background-dark {
-    background-color: shared.$base-color;
-    color: white;
-  }
-  &--animation:hover {
-    color: white;
-    @include shared.main-transition(all);
-  }
+  z-index: 1;
 }
