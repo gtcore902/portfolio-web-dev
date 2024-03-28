@@ -23,18 +23,19 @@ const Header = ({ scrollToElement }) => {
       <div className="header__logo">
         <FontAwesomeIcon icon={faCode} size="2xl" className="flash-color" />
         <p className="header__logo__title">webDev.</p>
-        <Toggle
-          id="dark-mode"
-          className="dark-mode"
-          defaultChecked={isDark ? false : true}
-          icons={{
-            checked: <FontAwesomeIcon icon={faMoon} size="xs" />,
-            unchecked: <FontAwesomeIcon icon={faSun} size="xs" />,
-          }}
-          onChange={() => setIsDark(!isDark ? true : false)}
-        />
-        <label htmlFor="dark-mode"></label>
       </div>
+      <Toggle
+        id="dark-mode"
+        className="dark-mode"
+        defaultChecked={isDark ? false : true}
+        aria-labelledby="dark-mode"
+        aria-label="dark-mode"
+        icons={{
+          checked: <FontAwesomeIcon icon={faMoon} size="2xs" />,
+          unchecked: <FontAwesomeIcon icon={faSun} size="2xs" />,
+        }}
+        onChange={() => setIsDark(!isDark ? true : false)}
+      />
 
       <nav>
         <ul className="header__nav">
