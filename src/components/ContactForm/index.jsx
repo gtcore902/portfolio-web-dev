@@ -143,9 +143,10 @@ const ContactForm = () => {
             onChange={handleChange}
           />
           <label htmlFor="checkbox" className={rgdpClass}>
-            Les données collectées seront communiquées aux seuls destinataires
-            suivants&nbsp;: Gaëtan TREMOIS. Les données sont conservées
-            seulement le temps nécessaire au traitement de votre message.
+            Vos informations personnelles sont collectées afin de me permettre
+            de répondre à votre message. Elles ne seront utilisées que dans le
+            cadre de cet échange et ne seront en aucun cas partagées. Merci de
+            cocher cette case pour me permettre de vous contacter efficacement.
           </label>
         </div>
         <ReCAPTCHA
