@@ -36,6 +36,7 @@ footer[data-theme='dark'] {
   --flash-color: #e94d35;
   --background-color: #31363f;
   --secondary-background-color: #31363f;
+  --sending-status-color: #e94d35;
 }
 
 body[data-theme='light'],
@@ -46,6 +47,7 @@ footer[data-theme='light'] {
   --flash-color: #e94d35;
   --background-color: white;
   --secondary-background-color: #f2f1ef;
+  --sending-status-color: darkgreen;
 }
 
 .footer {
@@ -84,6 +86,12 @@ a {
 
 .error {
   color: $flash-color;
+}
+
+.message-sending-status {
+  color: var(--sending-status-color);
+  font-weight: bolder;
+  text-align: center;
 }
 
 // .main-hero {
