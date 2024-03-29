@@ -10,14 +10,14 @@ const Hero = ({ scrollToElement }) => {
     <div className="hero" data-theme="dark">
       <div className="hero__informations opacityAnimation">
         <h1>
-          Bonjour, je suis Gaëtan. <br />
-          Développeur
+          GAETAN
           <FontAwesomeIcon
             icon={faCode}
             size="2xs"
             className="flash-color icon-margin"
           />
-          web
+          <br />
+          Développeur web
         </h1>
         <h2 className="hero__informations__h2title">
           React JS

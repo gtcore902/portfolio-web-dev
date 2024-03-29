@@ -92,9 +92,11 @@ const Home = () => {
 
   return (
     <div>
-      <Header scrollToElement={scrollToElement} />
-      <Hero scrollToElement={scrollToElement} />
-      <Banner />
+      <div className="main-hero">
+        <Header scrollToElement={scrollToElement} />
+        <Hero scrollToElement={scrollToElement} />
+        <Banner />
+      </div>
       <About />
       <SectionTitle title="Certifications" subtitle="Certificats de réussite" />
       {isCertificatesLoaded ? (
