@@ -14,9 +14,11 @@ const ContactForm = () => {
 
   const handleChange = (event) => {
     const name = event.target.name;
-    const value = event.target.value;
-    const checked = event.target.checked;
-    setInputs((values) => ({ ...values, [name]: value, checkbox: checked }));
+    const value =
+      event.target.type === 'checkbox'
+        ? event.target.checked
+        : event.target.value;
+    setInputs((values) => ({ ...values, [name]: value }));
     // console.log(inputs);
   };
 
