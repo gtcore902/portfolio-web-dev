@@ -1,9 +1,9 @@
-:root {
-  --base-color: #161513;
-  --flash-color: #e94d35;
-  --background-color: white;
-  --secondary-background-color: #f2f1ef;
-}
+// :root {
+//   --base-color: #161513;
+//   --flash-color: #ffca00;
+//   --background-color: white;
+//   --secondary-background-color: #f2f1ef;
+// }
 
 $base-color: var(--base-color);
 $flash-color: var(--flash-color);
@@ -33,7 +33,7 @@ footer[data-theme='dark'] {
   @include main-animation(color, 0.3s);
   @include main-animation(background-color, 0.3s);
   --base-color: #eeeeee;
-  --flash-color: #e94d35;
+  --flash-color: #e94d35; // #FFCA00
   --background-color: #31363f;
   --secondary-background-color: #31363f;
   --sending-status-color: #e94d35;
@@ -44,7 +44,7 @@ footer[data-theme='light'] {
   @include main-animation(color, 0.3s);
   @include main-animation(background-color, 0.3s);
   --base-color: #161513;
-  --flash-color: #e94d35;
+  --flash-color: #e94d35; // #FFCA00
   --background-color: white;
   --secondary-background-color: #f2f1ef;
   --sending-status-color: darkgreen;

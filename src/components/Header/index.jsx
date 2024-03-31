@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 import Toggle from 'react-toggle';
 import 'react-toggle/style.css';
 import ContactBtn from '../ContactBtn';
@@ -60,16 +61,36 @@ const Header = ({ scrollToElement }) => {
 
       <nav>
         <ul className="header__nav">
-          <li className="header__nav__link">
+          <motion.li
+            initial={{ opacity: 0, y: -15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: 'spring',
+              stiffness: 260,
+              duration: 0.5,
+              delay: 1.4,
+            }}
+            className="header__nav__link"
+          >
             <a href="#a-propos" onClick={scrollToElement}>
               à propos
             </a>
-          </li>
-          <li className="header__nav__link">
+          </motion.li>
+          <motion.li
+            initial={{ opacity: 0, y: -15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: 'spring',
+              stiffness: 260,
+              duration: 0.5,
+              delay: 1.7,
+            }}
+            className="header__nav__link"
+          >
             <a href="#projects" onClick={scrollToElement}>
               Projets
             </a>
-          </li>
+          </motion.li>
         </ul>
       </nav>
       <ContactBtn

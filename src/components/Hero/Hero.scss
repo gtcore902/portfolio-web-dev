@@ -6,14 +6,19 @@
   // justify-content: center;
   // gap: 25px;
   margin: 100px shared.$desktop-margin;
+  border-left: 8px solid shared.$flash-color;
   @media all and (max-width: 1000px) {
     flex-direction: column;
     gap: 30px;
+    border-left: none;
   }
   @media all and (max-width: 600px) {
     margin: 30px shared.$mobile-margin;
   }
   &__informations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     max-width: 50%;
     @media all and (max-width: 1000px) {
       max-width: 100%;
