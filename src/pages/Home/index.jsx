@@ -98,7 +98,10 @@ const Home = () => {
         <Banner />
       </div>
       <About />
-      <SectionTitle title="Certifications" subtitle="Certificats de réussite" />
+      <SectionTitle
+        title="Certifications"
+        subtitle="Quelques certificats de réussite"
+      />
       {isCertificatesLoaded ? (
         <div className="awards-container">
           {awardsSorted.map((award, index) => (
