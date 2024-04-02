@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { motion } from 'framer-motion';
 import Toggle from 'react-toggle';
 import 'react-toggle/style.css';
 import ContactBtn from '../ContactBtn';
@@ -41,7 +40,35 @@ const Header = ({ scrollToElement }) => {
   return (
     <div className="header">
       <div className="header__logo">
-        <FontAwesomeIcon icon={faCode} size="2xl" className="flash-color" />
+        {/* <FontAwesomeIcon icon={faCode} size="2xl" className="flash-color" /> */}
+        <svg
+          class="filled"
+          width="44px"
+          height="35px"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          stroke="#e94d35"
+        >
+          <g pathLength="1" id="SVGRepo_bgCarrier" stroke-width="0" />
+
+          <g
+            pathLength="1"
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+
+          <g pathLength="1" id="SVGRepo_iconCarrier">
+            <path
+              d="M7 8L3 11.6923L7 16M17 8L21 11.6923L17 16M14 4L10 20"
+              stroke="#e94d35"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </g>
+        </svg>
         <p className="header__logo__title">webDev.</p>
       </div>
       <Toggle
@@ -61,36 +88,16 @@ const Header = ({ scrollToElement }) => {
 
       <nav>
         <ul className="header__nav">
-          <motion.li
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              type: 'spring',
-              stiffness: 260,
-              duration: 0.5,
-              delay: 1.4,
-            }}
-            className="header__nav__link"
-          >
+          <li className="header__nav__link">
             <a href="#a-propos" onClick={scrollToElement}>
               à propos
             </a>
-          </motion.li>
-          <motion.li
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              type: 'spring',
-              stiffness: 260,
-              duration: 0.5,
-              delay: 1.7,
-            }}
-            className="header__nav__link"
-          >
+          </li>
+          <li className="header__nav__link">
             <a href="#projects" onClick={scrollToElement}>
               Projets
             </a>
-          </motion.li>
+          </li>
         </ul>
       </nav>
       <ContactBtn
