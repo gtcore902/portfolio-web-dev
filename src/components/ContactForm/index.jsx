@@ -9,6 +9,7 @@ const ContactForm = () => {
   const [recaptchaValue, setRecaptchaValue] = useState(null);
   const [errorInputName, setErrorInputName] = useState('');
   const [errorInputEmail, setErrorInputEmail] = useState('');
+  const [errorInputMessage, setErrorInputMessage] = useState('');
   const [messageSendingStatus, setMessageSendingStatus] = useState('');
   const [loaderClass, setLoaderClass] = useState(null);
 
@@ -65,9 +66,15 @@ const ContactForm = () => {
       return regexEmail.test(userMail);
     }
     function validateName(userName) {
-      if (inputs.name !== undefined) {
+      if (userName !== undefined) {
         userName = userName.trim();
         return userName !== '';
+      }
+    }
+    function validateMessage(userMessage) {
+      if (userMessage !== undefined) {
+        userMessage = userMessage.trim();
+        return userMessage.length >= 5;
       }
     }
     function validateCheckedRgpd(rgpd) {
@@ -81,12 +88,17 @@ const ContactForm = () => {
       ? setErrorInputEmail('Adresse email non valide!')
       : setErrorInputEmail('');
 
+    !validateMessage(inputs.message)
+      ? setErrorInputMessage('Message ne doit pas être vide!')
+      : setErrorInputMessage('');
+
     !validateCheckedRgpd(inputs.checkbox)
       ? setRgpdClass('error')
       : setRgpdClass('');
     if (
       validateEmail(inputs.email) &&
       validateName(inputs.name) &&
+      validateMessage(inputs.message) &&
       validateCheckedRgpd(inputs.checkbox) &&
       recaptchaValue !== null
     ) {
@@ -104,7 +116,7 @@ const ContactForm = () => {
         onSubmit={handleSubmit}
       >
         <label htmlFor="name">
-          Nom<span>{errorInputName}</span>
+          Nom*<span>{errorInputName}</span>
         </label>
 
         <input
@@ -115,7 +127,7 @@ const ContactForm = () => {
           onChange={handleChange}
         />
         <label htmlFor="email">
-          Email<span>{errorInputEmail}</span>
+          Email*<span>{errorInputEmail}</span>
         </label>
 
         <input
@@ -125,7 +137,9 @@ const ContactForm = () => {
           value={inputs.email || ''}
           onChange={handleChange}
         />
-        <label htmlFor="message">Message</label>
+        <label htmlFor="message">
+          Message*<span>{errorInputMessage}</span>
+        </label>
         <textarea
           name="message"
           id="message"
