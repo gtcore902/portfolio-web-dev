@@ -26,7 +26,7 @@ const About = () => {
             Je suis développeur web passionné, cherchant une équipe
             passionnée&nbsp;!
           </h3>
-          <p>
+          {/* <p>
             Après avoir travaillé dans l'industrie, j'ai acquis une expérience
             significative dans le <strong>développement web</strong> et une
             solide expertise en <strong>gestion de clientèle</strong>. J'ai
@@ -45,6 +45,19 @@ const About = () => {
             axée sur le <strong>développement web</strong> et la{' '}
             <strong>relation client</strong>, que ce soit en présentiel ou à
             distance.
+          </p> */}
+          <p>
+            J’aime allier mes compétences en <strong>développement web</strong>{' '}
+            et en <strong>gestion de clientèle</strong>. Mes expériences de
+            chargé d’affaires, d’encadrement d’équipe et de développeur web
+            freelance me permettent de construire des{' '}
+            <strong>solutions web de qualité</strong>, utilisables, et axées sur
+            la <strong>satisfaction client</strong> et{' '}
+            <strong>utilisateur</strong>.<br /> Le succès d’un projet repose sur
+            des fondamentaux de qualité et de communication.
+            <br /> Je souhaite continuer à <strong>développer</strong> ces
+            compétences <strong>au sein d’une équipe</strong> axée sur le
+            développement web et la relation client.
           </p>
           <div className="about__text__content__tags">
             <StatsTxt element="Résidence" firstDetail="Rouen" />
