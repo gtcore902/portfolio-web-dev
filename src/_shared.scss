@@ -64,7 +64,9 @@ body[data-theme='dark'] .main-hero {
   background-position: top;
 }
 .main-hero {
-  min-height: 100dvh;
+  @media all and (max-width: 768px) {
+    min-height: 100dvh;
+  }
 }
 .footer {
   background-color: var(--secondary-background-color);

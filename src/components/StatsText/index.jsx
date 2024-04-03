@@ -1,10 +1,13 @@
 import './StatsTxt.scss';
 
-const StatsTxt = ({ address, city }) => {
+const StatsTxt = ({ element, firstDetail, secondDetail }) => {
   return (
     <div className="stats-text">
-      <span>{address}</span>
-      <span>{city}</span>
+      <span className="stats-text__element">{element}</span>
+      <span className="stats-text__detail">{firstDetail}</span>
+      {secondDetail && (
+        <span className="stats-text__detail">{secondDetail}</span>
+      )}
     </div>
   );
 };

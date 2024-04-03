@@ -47,12 +47,16 @@ const About = () => {
             distance.
           </p>
           <div className="about__text__content__tags">
-            <StatsTxt address="Résidence" city="Rouen" />
+            <StatsTxt element="Résidence" firstDetail="Rouen" />
             <StatsTxt
-              address="Expérience"
-              city={`${calculateYearsWorkXp(initialWebDate)}+ Ans`}
+              element="Expérience"
+              firstDetail={`${calculateYearsWorkXp(initialWebDate)}+ Ans`}
             />
-            <StatsTxt address="diplôme" city="RNCP Dév. Web." />
+            <StatsTxt
+              element="diplôme"
+              firstDetail="RNCP Développeur Web."
+              secondDetail="BTS Force de vente"
+            />
           </div>
         </div>
       </div>
