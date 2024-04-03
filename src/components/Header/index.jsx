@@ -40,34 +40,86 @@ const Header = ({ scrollToElement }) => {
   return (
     <div className="header">
       <div className="header__logo">
-        <svg
-          className="filled"
-          width="44px"
-          height="35px"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          stroke="#e94d35"
-        >
-          <g pathLength="1" id="SVGRepo_bgCarrier" strokeWidth="0" />
-
-          <g
-            pathLength="1"
-            id="SVGRepo_tracerCarrier"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-
-          <g pathLength="1" id="SVGRepo_iconCarrier">
-            <path
-              d="M7 8L3 11.6923L7 16M17 8L21 11.6923L17 16M14 4L10 20"
-              stroke="#e94d35"
-              strokeWidth="2"
+        <div className="svg-container">
+          <svg
+            className="chevron svg-container__svg svg-container__svg--left"
+            width="44px"
+            height="35px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g pathLength="1" id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+            <g
+              pathLength="1"
+              id="SVGRepo_tracerCarrier"
               strokeLinecap="round"
               strokeLinejoin="round"
-            />
-          </g>
-        </svg>
+            ></g>
+            <g pathLength="1" id="SVGRepo_iconCarrier">
+              {' '}
+              <path
+                d="M15 6L9 12L15 18"
+                stroke="#e94d35"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></path>{' '}
+            </g>
+          </svg>
+          <svg
+            className="line svg-container__svg svg-container__svg--center"
+            width="44px"
+            height="35px"
+            viewBox="0 0 24 24 "
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g pathLength="1" id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+            <g
+              pathLength="1"
+              id="SVGRepo_tracerCarrier"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            ></g>
+            <g pathLength="1" id="SVGRepo_iconCarrier">
+              {' '}
+              <path
+                d="M16,2.5 L8,24"
+                stroke="#e94d35"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></path>{' '}
+            </g>
+          </svg>
+          <svg
+            className="chevron svg-container__svg svg-container__svg--right"
+            width="44px"
+            height="35px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g pathLength="1" id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+            <g
+              pathLength="1"
+              id="SVGRepo_tracerCarrier"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            ></g>
+            <g pathLength="1" id="SVGRepo_iconCarrier">
+              {' '}
+              <path
+                d="M15 6L9 12L15 18"
+                stroke="#e94d35"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></path>{' '}
+            </g>
+          </svg>
+        </div>
         <p className="header__logo__title">webDev.</p>
       </div>
       <Toggle
