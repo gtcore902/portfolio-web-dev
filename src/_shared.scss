@@ -50,6 +50,22 @@ footer[data-theme='light'] {
   --sending-status-color: darkgreen;
 }
 
+body[data-theme='light'] .main-hero {
+  background-image: url('./assets/circle-scatter-light.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top;
+}
+
+body[data-theme='dark'] .main-hero {
+  background-image: url('./assets/circle-scatter-dark.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top;
+}
+.main-hero {
+  min-height: 100dvh;
+}
 .footer {
   background-color: var(--secondary-background-color);
   color: var(--base-color);
@@ -93,10 +109,6 @@ a {
   font-weight: bolder;
   text-align: center;
 }
-
-// .main-hero {
-//   min-height: 100dvh;
-// }
 
 .dark-mode {
   display: flex;

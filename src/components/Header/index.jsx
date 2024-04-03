@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import Toggle from 'react-toggle';
 import 'react-toggle/style.css';
 import ContactBtn from '../ContactBtn';
@@ -40,7 +40,6 @@ const Header = ({ scrollToElement }) => {
   return (
     <div className="header">
       <div className="header__logo">
-        {/* <FontAwesomeIcon icon={faCode} size="2xl" className="flash-color" /> */}
         <svg
           className="filled"
           width="44px"
