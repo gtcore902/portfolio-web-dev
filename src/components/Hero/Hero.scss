@@ -46,7 +46,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 50%;
+    max-width: 45%;
     @media all and (max-width: 1000px) {
       max-width: 100%;
     }
@@ -58,9 +58,12 @@
       max-width: 400px;
       max-height: 400px;
       @media all and (max-width: 1275px) {
-        width: 350px;
-        height: 350px;
-        // width: 100%;
+        width: 300px;
+        height: 300px;
+      }
+      @media all and (max-width: 1000px) {
+        width: 300px;
+        height: 300px;
       }
       @media all and (max-width: 380px) {
         width: 250px;

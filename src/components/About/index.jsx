@@ -26,26 +26,6 @@ const About = () => {
             Je suis développeur web passionné, cherchant une équipe
             passionnée&nbsp;!
           </h3>
-          {/* <p>
-            Après avoir travaillé dans l'industrie, j'ai acquis une expérience
-            significative dans le <strong>développement web</strong> et une
-            solide expertise en <strong>gestion de clientèle</strong>. J'ai
-            occupé des postes de chargé d'affaires dans les secteurs des
-            télécommunications et de l'industrie.
-            <br />
-            <br />
-            Ce parcours a renforcé mes compétences en formation et en gestion
-            B2B.
-            <br />
-            <br />
-            Après plusieurs années en tant que{' '}
-            <strong>développeur web freelance</strong>, je souhaite mettre à
-            profit ma <strong>polyvalence</strong>, mon engagement et ma
-            capacité à combiner différentes compétences au sein d'une équipe
-            axée sur le <strong>développement web</strong> et la{' '}
-            <strong>relation client</strong>, que ce soit en présentiel ou à
-            distance.
-          </p> */}
           <p>
             J’aime allier mes compétences en <strong>développement web</strong>{' '}
             et en <strong>gestion de clientèle</strong>. Mes expériences de

@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   min-height: 175px;
-  overflow-x: hidden;
+  overflow-x: clip;
   @media all and (max-width: 768px) {
     display: none;
   }
