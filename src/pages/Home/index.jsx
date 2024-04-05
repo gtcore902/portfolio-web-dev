@@ -109,18 +109,18 @@ const Home = () => {
   return (
     <div>
       <div className="main-hero">
-        {/* <Header
+        <Header
           scrollToElement={scrollToElement}
           scrollPosition={scrollPosition}
           classStyle="header"
-        /> */}
-        {scrollPosition < targetScroll && (
+        />
+        {/* {scrollPosition < targetScroll && (
           <Header
             scrollToElement={scrollToElement}
             scrollPosition={scrollPosition}
             classStyle="header"
           />
-        )}
+        )} */}
         {scrollPosition > targetScroll && (
           <Header
             scrollToElement={scrollToElement}
