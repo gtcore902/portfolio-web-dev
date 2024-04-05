@@ -111,12 +111,14 @@ const Home = () => {
       <div className="main-hero">
         <Header
           scrollToElement={scrollToElement}
+          targetScroll={targetScroll}
           scrollPosition={scrollPosition}
           classStyle="header"
         />
         {scrollPosition >= targetScroll && (
           <Header
             scrollToElement={scrollToElement}
+            targetScroll={targetScroll}
             scrollPosition={scrollPosition}
             classStyle="header fixed-menu"
           />
