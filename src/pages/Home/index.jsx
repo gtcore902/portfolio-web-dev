@@ -114,14 +114,7 @@ const Home = () => {
           scrollPosition={scrollPosition}
           classStyle="header"
         />
-        {/* {scrollPosition < targetScroll && (
-          <Header
-            scrollToElement={scrollToElement}
-            scrollPosition={scrollPosition}
-            classStyle="header"
-          />
-        )} */}
-        {scrollPosition > targetScroll && (
+        {scrollPosition >= targetScroll && (
           <Header
             scrollToElement={scrollToElement}
             scrollPosition={scrollPosition}
