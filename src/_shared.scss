@@ -16,11 +16,11 @@ $main-font-size: 1rem;
   font-family: 'Bai Jamjuree', sans-serif;
 }
 
-@mixin main-transition($name) {
-  animation: $name 0.3s cubic-bezier(0.01, 0.95, 0, 1) both;
+@mixin main-animation($name, $speed: 0.3s) {
+  animation: $name $speed cubic-bezier(0.01, 0.95, 0, 1) both;
 }
 
-@mixin main-animation($name: all, $time: 0.15s) {
+@mixin main-transition($name: all, $time: 0.15s) {
   transition: $name $time ease-in;
 }
 
@@ -120,6 +120,9 @@ a {
   &.react-toggle--checked:not(.react-toggle--disabled) .react-toggle-track {
     background-color: var(--flash-color); // night mode
   }
+  @media all and (max-width: 600px) {
+    margin-left: 0;
+  }
 }
 // border radius for button
 .react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
@@ -144,7 +147,7 @@ a {
   z-index: -1;
   transform: scaleX(0);
   transform-origin: left;
-  @include main-transition(apparition);
+  @include main-animation(links-animation);
 }
 
 .contact-link {
@@ -158,7 +161,7 @@ a {
   }
   &--animation:hover {
     color: var(--background-color);
-    @include main-transition(all);
+    @include main-animation(all);
   }
 }
 
@@ -174,10 +177,64 @@ a {
     color: var(--background-color);
   }
 }
+.fixed-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  // max-width: 120em;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  margin: 0;
+  padding: 0 $desktop-margin;
+  background-color: var(--background-color);
+  // border-bottom: solid 1px var(--base-color);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+  transform-origin: top;
+  transform: scaleY(0);
+  @include main-animation(menu-animation, 0.5s);
+  @media all and (max-width: 600px) {
+    margin: 0;
+    padding: 0 5vw;
+  }
+}
 
-@keyframes apparition {
+.up-arrow {
+  position: fixed;
+  right: 0;
+  bottom: 70px;
+  color: var(--flash-color);
+  margin-right: $desktop-margin;
+  visibility: hidden;
+  cursor: pointer;
+  opacity: 0;
+  &:hover {
+    transform: scale(1.05);
+  }
+  @include main-transition(transform);
+  &--visible {
+    @include main-transition(opacity);
+    visibility: visible;
+    opacity: 1;
+  }
+  @media all and (max-width: 768px) {
+    bottom: 15px;
+    margin-right: $mobile-margin;
+  }
+}
+
+@keyframes links-animation {
   to {
     transform: scaleX(1);
+  }
+}
+@keyframes menu-animation {
+  to {
+    -webkit-transform: scaleY(1);
   }
 }
 

@@ -39,7 +39,7 @@
         transform: translateX(50%) scale(0);
         background-color: shared.$flash-color;
         @include shared.main-transition(transform);
-        @include shared.main-animation;
+        @include shared.main-animation(transform);
       }
       &:hover::after {
         transform: translateX(50%) scale(01);
@@ -54,6 +54,9 @@
   &__svg {
     &:not(:last-of-type) {
       margin-right: -22px;
+    }
+    &:last-of-type {
+      margin-right: -12px;
     }
     &--left {
       animation: animated 0.5s 2.5s cubic-bezier(0.17, 0.67, 0.83, 0.67)

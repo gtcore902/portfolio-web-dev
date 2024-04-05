@@ -7,7 +7,7 @@ import ContactBtn from '../ContactBtn';
 import './Header.scss';
 import '../ContactBtn/ContactBtn.scss';
 
-const Header = ({ scrollToElement }) => {
+const Header = ({ scrollToElement, classStyle }) => {
   const [isDark, setIsDark] = useState(false);
 
   // Check if dark mode is set in local storage
@@ -38,7 +38,7 @@ const Header = ({ scrollToElement }) => {
   }, []);
 
   return (
-    <div className="header">
+    <div className={classStyle}>
       <div className="header__logo">
         <div className="svg-container">
           <svg

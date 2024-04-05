@@ -9,10 +9,14 @@ import AddButton from '../../components/AddButton';
 import Projects from '../../components/Projects';
 import ContactForm from '../../components/ContactForm';
 import Footer from '../../components/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleArrowUp } from '@fortawesome/free-solid-svg-icons';
+
 import '../../awardsContainer.scss';
 import '../../_shared.scss';
 
 const Home = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
   const [awards, setAwards] = useState([]);
   const [awardsSorted, setAwardsSortded] = useState([]);
   const [isCertificatesLoaded, setIsCertificatesLoaded] = useState(false);
@@ -40,6 +44,18 @@ const Home = () => {
       }
     }
   }`;
+
+  // Top menu & up arrow handler
+  window.document.addEventListener('scroll', () => handleScroll());
+  const targetScroll = 500;
+  const handleScroll = () => {
+    if (window.scrollY > targetScroll) {
+      setScrollPosition(window.scrollY);
+    } else {
+      setScrollPosition(0);
+    }
+    // console.log(window.innerWidth, window.innerHeight);
+  };
 
   const fetchDatas = async (url) => {
     try {
@@ -93,7 +109,25 @@ const Home = () => {
   return (
     <div>
       <div className="main-hero">
-        <Header scrollToElement={scrollToElement} />
+        {/* <Header
+          scrollToElement={scrollToElement}
+          scrollPosition={scrollPosition}
+          classStyle="header"
+        /> */}
+        {scrollPosition < targetScroll && (
+          <Header
+            scrollToElement={scrollToElement}
+            scrollPosition={scrollPosition}
+            classStyle="header"
+          />
+        )}
+        {scrollPosition > targetScroll && (
+          <Header
+            scrollToElement={scrollToElement}
+            scrollPosition={scrollPosition}
+            classStyle="header fixed-menu"
+          />
+        )}
         <Hero scrollToElement={scrollToElement} />
         <Banner />
       </div>
@@ -167,6 +201,14 @@ const Home = () => {
       />
       <ContactForm />
       <Footer />
+      <FontAwesomeIcon
+        className={
+          scrollPosition > 500 ? 'up-arrow up-arrow--visible' : 'up-arrow'
+        }
+        icon={faCircleArrowUp}
+        size="2xl"
+        onClick={() => window.scrollTo(0, 0)}
+      />
     </div>
   );
 };

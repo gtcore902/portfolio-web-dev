@@ -42,12 +42,13 @@
         width: 400px;
         max-height: 600px;
         object-fit: cover;
-        @include shared.main-animation;
+        // @include shared.main-animation(scale);
+        @include shared.main-transition(transform);
         @media all and (max-width: 750px) {
           width: 100%;
         }
         &:hover {
-          @include shared.main-animation;
+          // @include shared.main-animation(scale);
           transform: scale(1.1);
         }
       }
@@ -92,9 +93,10 @@
       font-weight: 700;
       color: shared.$flash-color;
       width: max-content;
-      @include shared.main-animation(transform);
+      // @include shared.main-animation(transform);
+      @include shared.main-transition(transform);
       &:hover {
-        @include shared.main-animation(transform);
+        // @include shared.main-animation(transform);
         transform: translateX(5px);
       }
     }
