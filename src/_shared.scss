@@ -120,7 +120,7 @@ a {
   &.react-toggle--checked:not(.react-toggle--disabled) .react-toggle-track {
     background-color: var(--flash-color); // night mode
   }
-  @media all and (max-width: 600px) {
+  @media all and (max-width: 850px) {
     margin-left: 0;
   }
 }
