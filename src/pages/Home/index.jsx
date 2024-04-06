@@ -54,7 +54,6 @@ const Home = () => {
     } else {
       setScrollPosition(0);
     }
-    // console.log(window.innerWidth, window.innerHeight);
   };
 
   const fetchDatas = async (url) => {
@@ -109,21 +108,12 @@ const Home = () => {
   return (
     <div>
       <div className="main-hero">
-        {scrollPosition < targetScroll ? (
-          <Header
-            scrollToElement={scrollToElement}
-            // targetScroll={targetScroll}
-            // scrollPosition={scrollPosition}
-            classStyle="header"
-          />
-        ) : (
-          <Header
-            scrollToElement={scrollToElement}
-            // targetScroll={targetScroll}
-            // scrollPosition={scrollPosition}
-            classStyle="header fixed-menu"
-          />
-        )}
+        <Header
+          scrollToElement={scrollToElement}
+          classStyle={
+            scrollPosition < targetScroll ? 'header' : 'header fixed-menu'
+          }
+        />
         <Hero scrollToElement={scrollToElement} />
         <Banner />
       </div>
