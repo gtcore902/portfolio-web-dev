@@ -10,6 +10,7 @@
   align-items: center;
   font-weight: 700;
   margin: 0 shared.$desktop-margin 0 shared.$desktop-margin;
+  padding: 0 calc((100% - 125em) / 2);
   @media all and (max-width: 600px) {
     margin: 0 shared.$mobile-margin 0 shared.$mobile-margin;
   }

@@ -18,6 +18,7 @@
     font-weight: 700;
     transform-origin: center;
     transform: rotate(-3deg) scaleX(1.01);
+    transform-style: preserve-3d;
     &__techno {
       margin: auto 35px;
       text-transform: uppercase;
