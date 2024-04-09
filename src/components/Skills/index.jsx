@@ -21,7 +21,13 @@ const Skills = () => {
     'Responsabilité',
     'Attention au détail',
   ];
-  const projectSkills = ['Git', 'GitHub', 'Méthode agile', 'Relation client'];
+  const projectSkills = [
+    'Git',
+    'GitHub',
+    'Méthode agile scrum',
+    'Méthode agile kanban',
+    'Relation client',
+  ];
   const cmsSkills = [
     'NoSQL MongoDB',
     'API REST',

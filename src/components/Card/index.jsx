@@ -5,8 +5,8 @@ const Card = ({ title, list }) => {
     <div className="card animatable">
       <h4 className="card__title">{title}</h4>
       <ul className="card__ul">
-        {list.map((element) => (
-          <li>{element}</li>
+        {list.map((element, index) => (
+          <li key={index}>{element}</li>
         ))}
       </ul>
     </div>
