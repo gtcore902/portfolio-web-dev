@@ -6,6 +6,7 @@ import About from '../../components/About';
 import SectionTitle from '../../components/SectionTitle';
 import Awards from '../../components/Awards';
 import AddButton from '../../components/AddButton';
+import Skills from '../../components/Skills';
 import Projects from '../../components/Projects';
 import ContactForm from '../../components/ContactForm';
 import Footer from '../../components/Footer';
@@ -148,6 +149,12 @@ const Home = () => {
       ) : (
         <div className="loader"></div>
       )}
+      <SectionTitle
+        id="skills"
+        title="Compétences"
+        subtitle="Hard & Soft skills"
+      />
+      <Skills />
       <SectionTitle
         id="projects"
         title="Portfolio"

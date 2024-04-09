@@ -1,0 +1,21 @@
+@use '../../_shared.scss';
+
+.card {
+  border: solid 2px shared.$base_color;
+  font-size: 1.125rem;
+  line-height: 1.6rem;
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 24px;
+    padding: 32px;
+    color: white;
+    background: shared.$base_color;
+  }
+  &__ul {
+    & li::marker {
+      color: shared.$flash-color;
+    }
+  }
+}
