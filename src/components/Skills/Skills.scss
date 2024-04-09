@@ -5,6 +5,9 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   margin: 0 shared.$desktop-margin 95px shared.$desktop-margin;
+  @media all and (max-width: 1100px) {
+    margin: 30px shared.$mobile-margin;
+  }
   @media all and (max-width: 850px) {
     grid-template-columns: repeat(1, 1fr);
     margin: 30px shared.$mobile-margin;
