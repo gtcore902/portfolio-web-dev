@@ -12,7 +12,15 @@ const Skills = () => {
     'Node JS',
     'Firebase',
   ];
-  const softSkills = ['Prise de décision', 'Sens client', 'Autonomie'];
+  const softSkills = [
+    'Prise de décision',
+    'Sens client',
+    'Autonomie',
+    'Fléxibilité',
+    'Adaptabilité',
+    'Responsabilité',
+    'Attention au détail',
+  ];
   const projectSkills = ['Git', 'GitHub', 'Méthode agile', 'Relation client'];
   const cmsSkills = [
     'NoSQL MongoDB',
