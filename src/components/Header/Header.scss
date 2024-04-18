@@ -9,10 +9,10 @@
   justify-content: space-between;
   align-items: center;
   font-weight: 700;
-  margin: 0 shared.$desktop-margin 0 shared.$desktop-margin;
+  margin: 0 shared.$mobile-margin 0 shared.$mobile-margin;
   padding: 0 calc((100% - 125em) / 2);
-  @media all and (max-width: 600px) {
-    margin: 0 shared.$mobile-margin 0 shared.$mobile-margin;
+  @media all and (min-width: 636px) {
+    margin: 0 shared.$desktop-margin 0 shared.$desktop-margin;
   }
   &__logo {
     display: flex;
@@ -26,8 +26,9 @@
     display: flex;
     list-style-type: none;
     padding-left: 0;
-    @media all and (max-width: 850px) {
-      display: none;
+    display: none;
+    @media all and (min-width: 851px) {
+      display: flex;
     }
     &__link {
       position: relative;

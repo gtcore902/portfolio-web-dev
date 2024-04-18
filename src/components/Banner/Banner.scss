@@ -1,12 +1,12 @@
 @use '../../_shared.scss';
 
 .banner-container {
-  display: flex;
-  align-items: center;
-  min-height: 175px;
-  overflow-x: clip;
-  @media all and (max-width: 768px) {
-    display: none;
+  display: none;
+  @media all and (min-width: 769px) {
+    display: flex;
+    align-items: center;
+    min-height: 175px;
+    overflow-x: clip;
   }
   &__content {
     display: flex;

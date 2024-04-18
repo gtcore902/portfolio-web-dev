@@ -5,16 +5,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 24px;
+  padding: 24px 0;
   border: solid 2px shared.$base-color;
-  width: 33%;
-  @media all and (max-width: 600px) {
-    padding: 24px 0;
-  }
+  width: 100%;
+  margin: 0 shared.$mobile-margin;
 
-  @media all and (max-width: 1220px) {
-    width: 100%;
-  }
   span {
     display: block;
     font-weight: 700;
@@ -22,5 +17,14 @@
     &:first-of-type {
       font-size: 3.5rem;
     }
+  }
+
+  @media all and (min-width: 601px) {
+    padding: 24px 0;
+  }
+
+  @media all and (min-width: 1221px) {
+    width: 33%;
+    margin: 0;
   }
 }

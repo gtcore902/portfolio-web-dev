@@ -1,13 +1,13 @@
 @use '../../_shared.scss';
 
 .contactForm {
-  margin: 0 shared.$desktop-margin 95px shared.$desktop-margin;
+  margin: 0 shared.$mobile-margin 95px shared.$mobile-margin;
   display: flex;
   flex-direction: column;
   max-width: 800px;
-  margin: auto;
-  @media all and (max-width: 900px) {
-    margin: 0 shared.$mobile-margin 95px shared.$mobile-margin;
+  @media all and (min-width: 901px) {
+    // margin: 0 shared.$desktop-margin 95px shared.$desktop-margin;
+    margin: auto;
   }
 
   & label {

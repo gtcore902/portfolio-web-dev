@@ -2,14 +2,10 @@ $base-color: var(--base-color);
 $flash-color: var(--flash-color);
 $background-color: var(--background-color);
 $secondary-background-color: var(--secondary-background-color);
-
 $desktop-margin: clamp(150px, 50px, 25px);
 $mobile-margin: 5vw;
 $main-font-size: 1rem;
 $max-width: 125em;
-// $desktop-margin: 15vw;
-// $mobile-margin: 5vw;
-// $main-font-size: 1rem;
 
 @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
@@ -30,7 +26,7 @@ footer[data-theme='dark'] {
   @include main-animation(color, 0.3s);
   @include main-animation(background-color, 0.3s);
   --base-color: #eeeeee;
-  --flash-color: #e94d35; // #FFCA00
+  --flash-color: #e94d35;
   --background-color: #31363f;
   --secondary-background-color: #31363f;
   --sending-status-color: #e94d35;
@@ -41,7 +37,7 @@ footer[data-theme='light'] {
   @include main-animation(color, 0.3s);
   @include main-animation(background-color, 0.3s);
   --base-color: #161513;
-  --flash-color: #e94d35; // #FFCA00
+  --flash-color: #e94d35;
   --background-color: white;
   --secondary-background-color: #f2f1ef;
   --sending-status-color: darkgreen;
@@ -60,11 +56,6 @@ body[data-theme='dark'] .main-hero {
   background-size: 100%;
   background-position: top;
 }
-.main-hero {
-  @media all and (max-width: 768px) {
-    // min-height: 100dvh;
-  }
-}
 .footer {
   background-color: var(--secondary-background-color);
   color: var(--base-color);
@@ -75,7 +66,6 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  // position: relative;
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
@@ -85,7 +75,6 @@ body {
   color: var(--base-color);
   background-color: var(--background-color);
   max-width: $max-width;
-  // max-width: 1920px;
 }
 
 a {
@@ -115,22 +104,22 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 15px;
+  margin-left: 0;
   &.react-toggle:not(.react-toggle--disabled) .react-toggle-track {
     background-color: #dfe0e2; // day mode
   }
   &.react-toggle--checked:not(.react-toggle--disabled) .react-toggle-track {
     background-color: var(--flash-color); // night mode
   }
-  @media all and (max-width: 850px) {
-    margin-left: 0;
+  @media all and (min-width: 851px) {
+    margin-left: 15px;
   }
 }
-// border radius for button
+// border shadow for button
 .react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
   box-shadow: 0px 0px 2px 2px var(--flash-color);
 }
-// border radius for button
+// border shadow for button
 .react-toggle--focus .react-toggle-thumb {
   box-shadow: 0px 0px 2px 2px var(--flash-color);
 }
@@ -188,27 +177,26 @@ a {
   justify-content: space-between;
   align-items: center;
   font-weight: 700;
+  padding: 0 5vw;
   margin: 0;
-  padding: 0 $desktop-margin;
-  // padding: 0 calc((100% - 125em) / 2);
   background-color: var(--background-color);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
   z-index: 3;
   transform-origin: top;
   transform: scaleY(0);
   @include main-animation(menu-animation, 0.5s);
-  @media all and (max-width: 600px) {
+  @media all and (min-width: 601px) {
     margin: 0;
-    padding: 0 5vw;
+    padding: 0 $desktop-margin;
   }
 }
 
 .up-arrow {
   position: fixed;
   right: 0;
-  bottom: 70px;
+  bottom: 15px;
   color: var(--flash-color);
-  margin-right: $desktop-margin;
+  margin-right: $mobile-margin;
   visibility: hidden;
   cursor: pointer;
   opacity: 0;
@@ -221,9 +209,8 @@ a {
     visibility: visible;
     opacity: 1;
   }
-  @media all and (max-width: 768px) {
-    bottom: 15px;
-    margin-right: $mobile-margin;
+  @media all and (min-width: 768px) {
+    bottom: 70px;
   }
 }
 

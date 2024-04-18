@@ -2,53 +2,22 @@
 
 .project {
   display: flex;
-  justify-content: space-between;
-  gap: 44px;
-  margin: 0 shared.$desktop-margin 95px shared.$desktop-margin;
-  @media all and (max-width: 1200px) {
-    gap: 30px;
-  }
-  @media all and (max-width: 1100px) {
-    flex-direction: column;
-    margin: 30px shared.$mobile-margin;
-  }
+  flex-direction: column;
+  gap: 30px;
+  margin: 30px shared.$mobile-margin;
 
   &__image {
-    // width: 40%;
-    width: auto;
-    @media all and (max-width: 1100px) {
-      width: 50%;
-    }
-    @media all and (max-width: 1100px) {
-      width: 100%;
-    }
-
+    width: 100%;
     & a {
       display: flex;
       align-items: center;
+      justify-content: center;
       overflow: hidden;
       object-fit: cover;
-      @media all and (max-width: 1400px) {
-        justify-content: center;
-      }
-      @media all and (max-width: 850px) {
-        justify-content: center;
-      }
-      @media all and (max-width: 750px) {
-        width: 100%;
-      }
-
       & img {
-        width: 400px;
         max-height: 600px;
         object-fit: cover;
-        // @include shared.main-animation(scale);
-        @include shared.main-transition(transform);
-        @media all and (max-width: 750px) {
-          width: 100%;
-        }
         &:hover {
-          // @include shared.main-animation(scale);
           transform: scale(1.1);
         }
       }
@@ -58,15 +27,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    // width: 60%;
     flex: 1;
     line-height: 1.6rem;
-    @media all and (max-width: 1100px) {
-      width: 50%;
-    }
-    @media all and (max-width: 850px) {
-      width: 100%;
-    }
+    width: 100%;
     &__tag {
       font-size: 1.25rem;
       font-weight: 700;
@@ -85,7 +48,7 @@
       font-size: 2rem;
       font-weight: 700;
       line-height: 2.5rem;
-      @media all and (max-width: 1200px) {
+      @media all and (min-width: 1201px) {
         font-size: 2.5rem;
       }
     }
@@ -94,18 +57,22 @@
       font-weight: 700;
       color: shared.$flash-color;
       width: max-content;
-      // @include shared.main-animation(transform);
       @include shared.main-transition(transform);
       &:hover {
-        // @include shared.main-animation(transform);
         transform: translateX(5px);
       }
     }
   }
-  &--reversed {
-    flex-direction: row-reverse;
-    @media all and (max-width: 1100px) {
-      flex-direction: column;
+
+  @media all and (min-width: 1101px) {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 shared.$desktop-margin 95px shared.$desktop-margin;
+    &__image {
+      width: 50%;
+    }
+    &--reversed {
+      flex-direction: row-reverse;
     }
   }
 }
