@@ -5,6 +5,9 @@
   flex-direction: column;
   gap: 30px;
   margin: 30px shared.$mobile-margin;
+  @media all and (min-width: 1101px) {
+    justify-content: space-between;
+  }
 
   &__image {
     width: 100%;
@@ -15,8 +18,11 @@
       overflow: hidden;
       object-fit: cover;
       & img {
+        width: 100%;
         max-height: 600px;
         object-fit: cover;
+        max-width: 600px;
+        @include shared.main-transition(transform);
         &:hover {
           transform: scale(1.1);
         }
@@ -70,9 +76,15 @@
     margin: 0 shared.$desktop-margin 95px shared.$desktop-margin;
     &__image {
       width: 50%;
+      & a {
+        justify-content: flex-start;
+      }
     }
     &--reversed {
       flex-direction: row-reverse;
+      & .project__image a {
+        justify-content: flex-end;
+      }
     }
   }
 }
