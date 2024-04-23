@@ -22,9 +22,9 @@
         max-height: 600px;
         object-fit: cover;
         max-width: 600px;
-        @include shared.main-transition(transform);
+        @include shared.main-transition(filter);
         &:hover {
-          transform: scale(1.1);
+          filter: brightness(90%);
         }
       }
     }
