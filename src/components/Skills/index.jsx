@@ -20,6 +20,7 @@ const Skills = () => {
     'Adaptabilité',
     'Responsabilité',
     'Attention au détail',
+    'Rigueur',
   ];
   const projectSkills = [
     'Git',
