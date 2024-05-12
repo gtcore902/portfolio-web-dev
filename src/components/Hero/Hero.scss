@@ -7,40 +7,49 @@
   margin: 0 shared.$mobile-margin 100px shared.$mobile-margin;
   padding-top: 105px;
   gap: 30px;
+
   &__separator {
     height: auto;
     width: 15px;
     background-color: shared.$flash-color;
     display: none;
+
     @media all and (min-width: 1069px) {
       display: block;
     }
   }
+
   @media all and (min-width: 601px) {
     margin: 0 shared.$desktop-margin 100px shared.$desktop-margin;
     padding-top: 150px;
   }
+
   @media all and (min-width: 1001px) {
     flex-direction: row;
     gap: 30px;
   }
+
   &__informations {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+
     @media all and (min-width: 1001px) {
       align-items: flex-start;
       text-align: left;
     }
+
     &__btn {
       display: flex;
       justify-content: center;
     }
+
     &__h2title {
       margin-bottom: 37px;
     }
   }
+
   &__image__container {
     position: relative;
     display: flex;
@@ -48,9 +57,11 @@
     align-items: center;
     align-self: center;
     max-width: max-content;
+
     @media all and (min-width: 770px) and (max-width: 100px) {
       margin: auto;
     }
+
     &__mask {
       position: absolute;
       top: 0;
@@ -63,50 +74,53 @@
       gap: 5px;
       inset: solid 5px grey;
       z-index: 1;
-      :where(
-          &__element--1,
-          &__element--2,
-          &__element--4,
-          &__element--10,
-          &__element--11,
-          &__element--41,
-          &__element--61,
-          &__element--90,
-          &__element--81,
-          &__element--93,
-          &__element--91,
-          &__element--92,
-          &__element--99,
-          &__element--100
-        ) {
+
+      :where(&__element--1,
+        &__element--2,
+        &__element--4,
+        &__element--10,
+        &__element--11,
+        &__element--41,
+        &__element--61,
+        &__element--90,
+        &__element--81,
+        &__element--93,
+        &__element--91,
+        &__element--92,
+        &__element--99,
+        &__element--100) {
         background: shared.$background-color;
       }
-      :where(
-          &__element--9,
-          &__element--12,
-          &__element--21,
-          &__element--80,
-          &__element--82
-        ) {
+
+      :where(&__element--9,
+        &__element--12,
+        &__element--21,
+        &__element--80,
+        &__element--82) {
         background: shared.$flash-color;
       }
     }
+
     &__image__profil {
       object-fit: cover;
       width: 100%;
       max-height: 400px;
+
       @media all and (min-width: 380px) {
         width: 100%;
         height: 250px;
       }
+
       @media all and (min-width: 601px) {
         width: 100%;
         height: 399px;
       }
+
       @media all and (min-width: 1001px) {
         width: 100%;
         height: 294px;
       }
+
       @media all and (min-width: 1276px) {
         width: 100%;
         height: 400px;
@@ -119,12 +133,15 @@ h1 {
   font-weight: 700;
   margin-top: 0;
   text-align: center;
+
   & span {
     display: inline-block;
   }
+
   @media all and (min-width: 769px) {
     font-size: 3rem;
   }
+
   @media all and (min-width: 1001px) {
     text-align: left;
   }
@@ -136,31 +153,43 @@ h1 {
     transform-origin: top;
     animation: separator-animation 0.5s linear forwards;
   }
+
   h1 {
     opacity: 0;
     transform: translateY(-20px);
-    animation: title-animation 0.5s 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67)
-      forwards;
+    animation: title-animation 0.5s 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+
     & span {
       opacity: 0;
       transform: translateY(-20px);
-      animation: title-animation 0.5s 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67)
-        forwards;
+      animation: title-animation 0.5s 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
     }
   }
+
   .hero__informations {
+
     &__h2title,
     &__btn {
       opacity: 0;
       transform: translateX(-5px);
-      animation: slide-animation 0.6s 0.6s cubic-bezier(0.17, 0.67, 0.83, 0.67)
-        forwards;
+      animation: slide-animation 0.6s 0.6s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
     }
+
     &__btn {
-      animation: slide-animation 0.6s 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67)
-        forwards;
+      animation: slide-animation 0.6s 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
     }
   }
+
+  $maskElements: 1, 2, 4, 10, 11, 41, 61, 90, 81, 93, 91, 92, 99, 100, 9, 12, 21,
+    80, 82;
+
+  @each $maskElement in $maskElements {
+    .hero__image__container__mask__element--#{$maskElement} {
+      opacity: 0;
+      animation: opacity 0.3s #{1.5 + $maskElement/100}s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+    }
+  }
+
   .hero__image__container__image__profil {
     opacity: 0;
     animation: opacity 0.3s 1s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
