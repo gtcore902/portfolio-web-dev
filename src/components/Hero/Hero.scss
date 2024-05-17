@@ -73,7 +73,7 @@
       grid-template-columns: repeat(10, 1fr);
       grid-template-rows: repeat(10, 1fr);
       gap: 5px;
-      inset: 1px;
+      inset: 5px;
       z-index: 1;
 
       :where(&__element--1,
