@@ -1,0 +1,45 @@
+name: Deploy React App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy React App Portfolio Web Dev
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: sudo apt-get install -y lftp
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build React App
+        run: npm run build
+
+      - name: Deploy via FTP
+        env:
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          echo "Starting deployment..."
+          lftp "$FTP_HOST" -u "$FTP_USER","$FTP_PASSWORD" -e "
+          set ssl:verify-certificate no;
+          set ftp:passive-mode yes;
+          set net:max-retries 3;
+          mirror -R --delete --parallel=5 --no-symlinks ./build $DEPLOY_PATH;
+          bye;
+          "
