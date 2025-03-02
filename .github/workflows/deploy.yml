@@ -24,7 +24,8 @@ jobs:
 
       - name: Create RECAPTCHA_KEY.js File
         run: |
-          echo "export const RECAPTCHA_KEY = '${{ secrets.RECAPTCHA_SECRET_KEY }}';" >> src/RECAPTCHA_KEY.js
+          echo "const RECAPTCHA_KEY = '${{ secrets.RECAPTCHA_SECRET_KEY }}';" > src/RECAPTCHA_KEY.js
+          echo "export default RECAPTCHA_KEY;" >> src/RECAPTCHA_KEY.js
 
       - name: Install Dependencies
         run: npm install
