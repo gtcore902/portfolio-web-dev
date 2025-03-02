@@ -22,6 +22,10 @@ jobs:
         with:
           node-version: 18
 
+      - name: Create RECAPTCHA_KEY.js File
+        run: |
+          echo "export const RECAPTCHA_SECRET_KEY = '${{ secrets.RECAPTCHA_SECRET_KEY }}';" >> src/RECAPTCHA_KEY.js
+
       - name: Install Dependencies
         run: npm install
 
