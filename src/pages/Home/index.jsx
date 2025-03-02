@@ -94,7 +94,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchDatas('https://api.gaetantremois.fr/graphql');
-  }, [fetchDatas]);
+  }, []);
 
   useEffect(() => {
     setAwardsSortded(awards.slice(0, 4));
