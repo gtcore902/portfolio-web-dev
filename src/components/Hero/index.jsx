@@ -18,7 +18,7 @@ const Hero = ({ scrollToElement }) => {
             className="flash-color icon-margin"
           />
           <br />
-          <span>Développeur web.</span>
+          <span>Développeur web</span>
         </h1>
         <h2 className="hero__informations__h2title">
           React JS
