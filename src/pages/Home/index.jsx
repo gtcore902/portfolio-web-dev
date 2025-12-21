@@ -118,16 +118,16 @@ const Home = () => {
    * Retrieves the HTML of the first element matching the selector
    * (default: first <p>)
    */
-  const extractHTMLFromSelector = (htmlString, selector = 'p') => {
-    if (!htmlString) return '';
-    
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlString, 'text/html');
-    const element = doc.querySelector(selector);
-    
-    // returns the innerHTML or empty string
-    return element ? element.innerHTML : '';
-  };
+    const extractAllParagraphsHTML = (htmlString) => {
+        if (!htmlString) return [];
+        
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlString, 'text/html');
+        const ps = Array.from(doc.querySelectorAll('p'));
+        
+        // Sanitize paragraphs
+        return ps.map(p => DOMPurify.sanitize(p.innerHTML));
+    };
   
   /**
    * Extracts an <h2> heading with a specific class
@@ -154,32 +154,33 @@ const Home = () => {
         <Hero scrollToElement={scrollToElement} />
         <Banner />
       </div>
-      <div>
-        {about.map((item) => {
-          const rawTitleHTML = extractTitleHTML(item?.node?.content);
-          const rawContentHTML = extractHTMLFromSelector(item?.node?.content);
-          
-          // sanitize the HTML for security
-          const safeTitleHTML = DOMPurify.sanitize(rawTitleHTML);
-          const safeContentHTML = DOMPurify.sanitize(rawContentHTML);
-          
-          return (
-              <About
-                  key={item?.node?.id}
-                  degree={item?.node?.title}
-                  title={
-                    // returns an element with HTML included
-                    <span dangerouslySetInnerHTML={{ __html: safeTitleHTML }} />
-                  }
-                  content={
-                    <div dangerouslySetInnerHTML={{ __html: safeContentHTML }} />
-                  }
-              />
-          );
-        })}
-      </div>
-      
-      <SectionTitle
+        
+        <div>
+            {about.map((item) => {
+                const titleHTML = DOMPurify.sanitize(
+                    extractTitleHTML(item?.node?.content)
+                );
+                
+                const paragraphs = extractAllParagraphsHTML(item?.node?.content);
+                
+                return (
+                    <About
+                        key={item?.node?.id}
+                        degree={item?.node?.title}
+                        title={<div dangerouslySetInnerHTML={{ __html: titleHTML }} />}
+                        content={
+                            <div>
+                                {paragraphs.map((p, index) => (
+                                    <p key={index} dangerouslySetInnerHTML={{ __html: p }} />
+                                ))}
+                            </div>
+                        }
+                    />
+                );
+            })}
+        </div>
+        
+        <SectionTitle
         title="Certifications"
         subtitle="Quelques certificats de réussite"
       />
