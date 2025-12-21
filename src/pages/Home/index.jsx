@@ -12,12 +12,14 @@ import ContactForm from '../../components/ContactForm';
 import Footer from '../../components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowUp } from '@fortawesome/free-solid-svg-icons';
+import DOMPurify from 'dompurify';
 
 import '../../awardsContainer.scss';
 import '../../_shared.scss';
 
 const Home = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [about, setAbout] = useState([])
   const [awards, setAwards] = useState([]);
   const [awardsSorted, setAwardsSortded] = useState([]);
   const [isCertificatesLoaded, setIsCertificatesLoaded] = useState(false);
@@ -70,6 +72,12 @@ const Home = () => {
       });
       let datas = await response.json();
       datas = Array.from(datas.data.posts.edges);
+      setAbout(
+          datas.filter(
+              (element) =>
+                  element.node.categories.edges[0].node.name === 'about'
+          )
+      )
       setAwards(
         datas.filter(
           (element) =>
@@ -105,6 +113,34 @@ const Home = () => {
     let element = document.getElementById(e.target.href.split('#')[1]);
     element.scrollIntoView();
   };
+  
+  /**
+   * Retrieves the HTML of the first element matching the selector
+   * (default: first <p>)
+   */
+  const extractHTMLFromSelector = (htmlString, selector = 'p') => {
+    if (!htmlString) return '';
+    
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlString, 'text/html');
+    const element = doc.querySelector(selector);
+    
+    // returns the innerHTML or empty string
+    return element ? element.innerHTML : '';
+  };
+  
+  /**
+   * Extracts an <h2> heading with a specific class
+   */
+  const extractTitleHTML = (htmlString, selector = 'h2.wp-block-heading') => {
+    if (!htmlString) return '';
+    
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlString, 'text/html');
+    const heading = doc.querySelector(selector);
+    
+    return heading ? heading.innerHTML : '';
+  };
 
   return (
     <div>
@@ -118,7 +154,31 @@ const Home = () => {
         <Hero scrollToElement={scrollToElement} />
         <Banner />
       </div>
-      <About />
+      <div>
+        {about.map((item) => {
+          const rawTitleHTML = extractTitleHTML(item?.node?.content);
+          const rawContentHTML = extractHTMLFromSelector(item?.node?.content);
+          
+          // sanitize the HTML for security
+          const safeTitleHTML = DOMPurify.sanitize(rawTitleHTML);
+          const safeContentHTML = DOMPurify.sanitize(rawContentHTML);
+          
+          return (
+              <About
+                  key={item?.node?.id}
+                  degree={item?.node?.title}
+                  title={
+                    // returns an element with HTML included
+                    <span dangerouslySetInnerHTML={{ __html: safeTitleHTML }} />
+                  }
+                  content={
+                    <div dangerouslySetInnerHTML={{ __html: safeContentHTML }} />
+                  }
+              />
+          );
+        })}
+      </div>
+      
       <SectionTitle
         title="Certifications"
         subtitle="Quelques certificats de réussite"
