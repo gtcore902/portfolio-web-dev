@@ -167,7 +167,11 @@ const Home = () => {
                     <About
                         key={item?.node?.id}
                         degree={item?.node?.title}
-                        title={<div dangerouslySetInnerHTML={{ __html: titleHTML }} />}
+                        title={
+                            <>
+                                <span dangerouslySetInnerHTML={{ __html: titleHTML }} />
+                            </>
+                        }
                         content={
                             <div>
                                 {paragraphs.map((p, index) => (
@@ -176,6 +180,7 @@ const Home = () => {
                             </div>
                         }
                     />
+                
                 );
             })}
         </div>
