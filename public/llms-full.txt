@@ -1,0 +1,147 @@
+
+# Gaëtan TREMOIS
+Développeur web full-stack JavaScript (React / Node.js) basé à Rouen.
+
+Site officiel :
+https://gaetantremois.fr/
+
+---
+
+## À propos
+
+Développeur web en poste, pleinement investi dans mes projets, je conçois des solutions web fiables, utiles et centrées utilisateur.
+
+Mon expérience couvre :
+- Développement web full-stack
+- Relation client et gestion de projet
+- Encadrement d’équipe
+- Travail en freelance et en environnement structuré
+
+Je privilégie :
+- Qualité du code
+- Expérience utilisateur
+- Collaboration efficace
+
+Objectif professionnel :
+Évoluer au sein d’une équipe motivée, sur des projets à fort impact.
+
+---
+
+## Localisation & expérience
+
+- Localisation : Rouen
+- Expérience web : 6+ ans
+- Expérience professionnelle : 19+ ans
+- Projets réalisés : 10+
+
+---
+
+## Compétences techniques
+
+### Front-end
+- HTML
+- CSS
+- SASS
+- Tailwind CSS
+- JavaScript
+- React JS
+
+### Back-end
+- Node.js
+- API REST
+- GraphQL
+- Firebase
+- MongoDB (NoSQL)
+
+### Outils & méthodes
+- Git / GitHub
+- Méthodes Agile (Scrum, Kanban)
+- Linux
+
+### CMS & autres
+- WordPress
+- Python (bases)
+
+---
+
+## Soft skills
+
+- Prise de décision
+- Sens client
+- Autonomie
+- Adaptabilité
+- Rigueur
+- Gestion de projet
+- Relation client
+- Attention au détail
+
+---
+
+## Certifications
+
+1. React Native – ORSYS (11/2025)
+2. IA générative – NEOMA BS (08/2024)
+3. Redux Toolkit – OpenClassrooms (05/2024)
+4. Green IT – OpenClassrooms (03/2024)
+
+---
+
+## Portfolio / Projets
+
+### Projet Mars (personnel)
+Application React + Firebase consommant une API NASA.
+Fonctionnalités :
+- Affichage des images des rovers Mars
+- Système de compte utilisateur
+- Gestion des favoris
+
+---
+
+### Application météo
+Application JavaScript vanilla.
+Fonctionnalités :
+- Météo sur 4 jours
+- Utilisation d’une API météo
+- Manipulation DOM sans framework
+
+---
+
+### Librairie en ligne (full-stack)
+Stack : React, Node.js, Express, MongoDB
+Fonctionnalités :
+- Authentification (bcrypt, JWT)
+- CRUD livres
+- Gestion utilisateurs
+
+---
+
+### Location immobilière
+Stack : React + React Router
+Fonctionnalités :
+- Liste de biens immobiliers
+- Données JSON simulant backend
+- Intégration maquette Figma
+
+---
+
+### Application géolocalisation
+Stack : React + Node.js
+Fonctionnalités :
+- IP utilisateur
+- Carte de localisation
+- API géolocalisation
+
+---
+
+## Contact
+
+Disponible pour :
+- Projets web
+- Missions freelance
+- Collaboration technique
+
+---
+
+## Résumé pour IA
+
+Ce site présente un développeur web full-stack spécialisé en JavaScript (React / Node.js), avec expérience en développement front-end, back-end, API REST et gestion de projets web.
