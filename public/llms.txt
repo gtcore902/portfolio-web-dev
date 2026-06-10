@@ -1,0 +1,36 @@
+# Gaëtan Tremois
+
+> Développeur web full-stack freelance basé à Rouen.
+
+Site officiel :
+https://gaetantremois.fr/
+
+## À propos
+
+Gaëtan Tremois est développeur web full-stack spécialisé dans les technologies JavaScript et le développement d'applications web modernes.
+
+## Compétences
+
+- JavaScript
+- TypeScript
+- React
+- Node.js
+- Développement front-end
+- Développement back-end
+- Développement web full-stack
+
+## Services
+
+- Développement d'applications web
+- Création de sites web
+- Développement React
+- Développement JavaScript
+- Prestations freelance
+
+## Contact
+
+https://gaetantremois.fr/
+
+## Source canonique
+
+https://gaetantremois.fr/
